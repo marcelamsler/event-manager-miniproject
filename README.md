@@ -8,6 +8,14 @@ npm start
 
 Open your preferred browser and visit http://localhost:8000/app
 
+## Server
+
+cd server
+npm install
+npm start
+
+Server API should be accessible on http://localhost:8080/api
+
 ## Directory Layout
 
 ```
