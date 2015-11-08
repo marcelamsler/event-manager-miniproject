@@ -1,1 +1,20 @@
-<p>This is the partial for view 1.</p>
+<html src="view1.js"></html>
+<p>This is the partial <fo>         </fo>r view 1.</p>
+
+<div ng-controller="View1Ctrl">
+
+    <table class="table" ng-controller="View1Ctrl">
+        <tr ng-repeat="event in events">
+            <td>{{event.id}}</td>
+            <td>{{event.name}}</td>
+
+            <td>{{event.description}}</td>
+            <td>{{event.targetGroup}}</td>
+            <td>{{event.contributionsDescription}}</td>
+            <td>{{event.times.begin}}</td>
+            <td>{{event.times.end}}</td>
+        </tr>
+    </table>
+
+
+</div>
