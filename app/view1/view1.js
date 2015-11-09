@@ -13,53 +13,53 @@ angular.module('myApp.view1', ['ngRoute'])
         $scope.events = [
             {
                 id: 1,
-                name: 'Studiengangabend',
+                name: "Studiengangabend",
                 description: "auf ein Neues",
-                targetGroup: 'Stud I',
-                contributionsDescription: 'Desserts gem. Doodle',
+                targetGroup: "Stud I",
+                contributionsDescription: "Desserts gem. Doodle",
                 location: {
                     name: "HSR",
                     street: "Oberseestrasse",
-                    plz: 8640,
+                    plz: "8640",
                     city: "Rapperswil"
                 },
                 times: {
-                    begin: new Date('2015-11-15T19:00:00'),
-                    end: new Date('2015-11-15T19:00:00'),
+                    begin: "15.11.2015 19:00",
+                    end: "15.11.2015 22:30"
                 },
             },
             {
                 id: 2,
-                name: 'Birthday Party',
+                name: "Birthday Party",
                 description: "man wird alt",
-                targetGroup: 'Freunde',
-                contributionsDescription: 'gute Laune',
+                targetGroup: "Freunde",
+                contributionsDescription: "gute Laune",
                 location: {
                     name: "My Flat",
                     street: "Kniestrasse",
-                    plz: 8640,
+                    plz: "8640",
                     city: "Rapperswil"
                 },
                 times: {
-                    begin: '13.1.2016 19:00',
-                    end: '13.1.2016 23:00',
+                    begin: "13.1.2016 19:00",
+                    end: "13.1.2016 23:00"
                 },
             },
             {
                 id: 3,
-                name: 'Fette Fete',
+                name: "Fette Fete",
                 description: "riesige Fete",
-                targetGroup: 'alle',
-                contributionsDescription: 'cash',
+                targetGroup: "alle",
+                contributionsDescription: "cash",
                 location:{
                     name: "Club Fete",
                     street: "rue du fete",
-                    plz: 2000,
+                    plz: "2000",
                     city: "Genf"
                 },
                 times:{
-                    begin: '1.3.2016 19:00',
-                    end: '2.3.2016 23:00',
+                    begin: "1.3.2016 19:00",
+                    end: "2.3.2016 23:00"
                 },
             }
         ]
