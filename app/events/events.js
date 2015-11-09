@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.events', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view1', {
-            templateUrl: 'view1/view1.html',
-            controller: 'View1Ctrl'
+        $routeProvider.when('/events', {
+            templateUrl: 'events/events.html',
+            controller: 'EventsCtrl'
         });
     }])
 
-    .controller('View1Ctrl', ['$scope', function ($scope) {
+    .controller('EventsCtrl', ['$scope', function ($scope) {
         $scope.events = [
             {
                 id: 1,
