@@ -28,3 +28,13 @@
   content: "";
   padding: 0;
 }
+
+body > div {
+  height: 100%;
+}
+
+#addEventBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
