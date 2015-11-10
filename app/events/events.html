@@ -6,17 +6,18 @@
     <md-list>
       <md-subheader class="md-no-sticky">All Events</md-subheader>
 
-      <md-list-item class="md-3-line" ng-repeat="event in events" ng-click="goToPerson(person.name, $event)">
-        <div class="md-list-item-text" layout="row">
+      <md-list-item class="md-3-line" ng-repeat="event in events" layout="row" layout-align="space-between center">
 
-          <div class="" layout="column">
+          <div class="md-list-item-text" layout="column">
             <h3>{{ event.name }} ({{ event.id }})</h3>
             <h4>{{ event.description }}</h4>
             <p>{{ event.times.begin }} - {{event.times.end}}</p>
           </div>
 
-          <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
-        </div>
+          <md-button class="md-icon-button" aria-label="Open">
+            Öffnen
+          </md-button>
+
       </md-list-item>
 
     </md-list>
