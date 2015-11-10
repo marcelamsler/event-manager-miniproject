@@ -23,13 +23,14 @@
   </style>
 </head>
 <body ng-cloak>
-  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
-
-    <md-toolbar layout="row" class="md-whiteframe-z1">
-      <h1>Event Manger</h1>
+  <div flex layout="column" tabIndex="-1" role="main">
+    <md-toolbar class="md-whiteframe-z2">
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Event Manger</h1>
+      </div>
     </md-toolbar>
 
-    <md-content flex id="content">
+    <md-content flex layout-padding id="content">
       <ul class="menu">
         <li><a href="#/events">Events</a></li>
         <li><a href="#/view2">view2</a></li>
