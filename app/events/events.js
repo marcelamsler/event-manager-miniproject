@@ -14,11 +14,11 @@ angular.module('eventManagerApp.events', ['ngRoute'])
 
         eventsService
           .loadAllEvents()
-          .then( function( events ) {
-            $scope.events    = [].concat( events );
+          .then( function( response ) {
+            $scope.events = [].concat( response.data.events );
           });
 
         $scope.slotsLeft = function( event ) {
-          return event.maximalAmountOfGuests - event.guests.length;
+          //return event.maximalAmountOfGuests - event.guests.length;
         };
     }]);
