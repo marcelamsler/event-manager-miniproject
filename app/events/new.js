@@ -12,8 +12,6 @@ angular.module('eventManagerApp.events')
     });
 }])
 .controller('EventFormCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
-    $scope.minDate = new Date();
-
     $scope.event = {
         id: 1,
         name: null,
@@ -29,5 +27,26 @@ angular.module('eventManagerApp.events')
         times: {},
         maximalAmountOfGuests: 0,
         guests: []
-    }
+    };
+
+    $scope.today = new Date();
+    $scope.minDateBegin = new Date(
+      $scope.today.getFullYear(),
+      $scope.today.getMonth(),
+      $scope.today.getDate()
+    );
+
+    /**
+     * Start Time changed --> check if end time is still after the start time.
+     * Also: Change the min date for the end time so that it can only be after
+     * the start time.
+     */
+    $scope.changeMinDateEnd = function() {
+      if ( $scope.event.times.end < $scope.event.times.begin ) {
+        $scope.event.times.end = $scope.event.times.begin;
+      }
+      $scope.minDateEnd = $scope.event.times.begin ? $scope.event.times.begin : $scope.minDateBegin;
+    };
+    $scope.changeMinDateEnd();
+
 }]);
