@@ -1,14 +1,14 @@
 <html src="events.js"></html>
 <p>This is the partial for the events.</p>
 
-<div ng-controller=" EventsCtrl" ng-cloak>
+<div ng-controller="EventsCtrl" ng-cloak>
   <md-list>
     <md-subheader class="md-no-sticky">All Events</md-subheader>
 
     <md-list-item class="md-3-line" ng-repeat="event in events" layout="row" layout-align="space-between center">
 
         <div class="md-list-item-text" layout="column">
-          <h3>{{ event.name }} ({{ slotsLeft( event ) }})</h3>
+          <h3>{{ event.name }}</h3>
           <h4>{{ event.description }}</h4>
           <p>{{ event.times.begin }} - {{event.times.end}}</p>
         </div>
@@ -19,7 +19,7 @@
     </md-list-item>
 
   </md-list>
-  <md-button id="addEventBtn" class="md-fab md-primary" aria-label="Add Event">
+  <md-button href="#/events/new" id="addEventBtn" class="md-fab md-primary" aria-label="Add Event">
     <md-icon md-svg-src="img/icons/ic_add_48px.svg"></md-icon>
   </md-button>
 </div>

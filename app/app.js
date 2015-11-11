@@ -4,7 +4,7 @@
 angular.module('eventManagerApp', [
   'ngRoute',
   'eventManagerApp.events',
-  "ngMaterial"
+  'ngMaterial'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/events'});
