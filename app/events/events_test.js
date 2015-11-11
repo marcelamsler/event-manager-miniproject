@@ -1,8 +1,8 @@
 'use strict';
 
-describe('events module', function() {
+describe('eventManagerApp.events module', function() {
 
-  beforeEach(module('events'));
+  beforeEach(module('eventManagerApp.events'));
 
   describe('events controller', function(){
 

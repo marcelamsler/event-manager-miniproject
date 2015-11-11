@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('events').service('eventsService', ['$q', EventsService]);
+  angular.module('eventManagerApp.events').service('eventsService', ['$q', EventsService]);
 
   /**
    * Events DataService
