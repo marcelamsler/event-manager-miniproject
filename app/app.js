@@ -5,9 +5,8 @@ angular.module('eventManagerApp', [
   'ngRoute',
   'eventManagerApp.events',
   'ngMaterial'
-]).
-config(['$routeProvider', '$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
-
+])
+.config(['$routeProvider', '$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
   $routeProvider.otherwise({redirectTo: '/events'});
 
   $mdThemingProvider.theme('default')
