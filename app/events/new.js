@@ -9,13 +9,13 @@ angular.module('eventManagerApp.events')
         });
     }])
 
-    .controller('EventFormCtrl', ['$scope', function ($scope) {
+    .controller('EventFormCtrl', ['$scope',function ($scope) {
         $scope.event = {
             id: 1,
             name: null,
             description: null,
             targetGroup: null,
-            contributionsDescription: null,
+            contributionsDescription: [],
             location: {
                 name: null,
                 street: null,

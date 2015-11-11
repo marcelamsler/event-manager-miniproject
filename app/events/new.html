@@ -1,5 +1,6 @@
-<div ng-controller="EventFormCtrl" layout="column" ng-cloak flex>
+<md-content ng-controller="EventFormCtrl" layout="column" ng-cloak flex>
 
+    <h2 class="md-title">General</h2>
     <md-content layout-padding class="autoScroll">
         <md-input-container class="md-icon-float md-block">
             <label>Event Name</label>
@@ -31,10 +32,23 @@
             </md-input-container>
 
         </div>
-        <div layout layout-sm="column">
+        <br/>
 
-            <md-input-container flex>
-                <label>Name</label>
+        <h2 class="md-title">Contributions</h2>
+        <md-chips
+                ng-model="event.contributionsDescription"
+                placeholder="Add Contribution"
+                delete-button-label="Remove Contributions"
+                delete-hint="Press delete to remove Contributions"></md-chips>
+
+        <br/>
+
+        <h2 class="md-title">Event Address</h2>
+
+        <md-content layout-padding layout="row" layout-sm="column">
+
+            <md-input-container md-block flex>
+                <label>Your Name</label>
                 <input ng-model="event.location.name" type="text">
             </md-input-container>
             <md-input-container flex>
@@ -45,6 +59,6 @@
                 <label>Zip</label>
                 <input ng-model="event.location.plz" type="text">
             </md-input-container>
-        </div>
+        </md-content>
     </md-content>
-</div>
+</md-content>
