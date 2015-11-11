@@ -9,7 +9,7 @@ angular.module('eventManagerApp.events')
         });
     }])
 
-    .controller('EventFormCtrl', [function () {
+    .controller('EventFormCtrl', ['$scope', function ($scope) {
         $scope.event = {
             id: 1,
             name: null,
@@ -22,10 +22,7 @@ angular.module('eventManagerApp.events')
                 plz: null,
                 city: null
             },
-            times: {
-                begin: null,
-                end: null
-            },
+            times: {},
             maximalAmountOfGuests: 0,
             guests: []
         }
