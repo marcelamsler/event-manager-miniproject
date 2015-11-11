@@ -1,11 +1,9 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('eventManagerApp', [
   'ngRoute',
-  'myApp.events',
-  'myApp.view2',
-  'myApp.version',
+  'eventManagerApp.events',
   "ngMaterial"
 ]).
 config(['$routeProvider', function($routeProvider) {

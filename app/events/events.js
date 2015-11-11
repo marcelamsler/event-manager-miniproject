@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.events', ['ngRoute'])
+angular.module('eventManagerApp.events', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events', {
