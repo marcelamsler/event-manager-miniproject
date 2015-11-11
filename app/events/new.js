@@ -9,7 +9,13 @@ angular.module('eventManagerApp.events')
         });
     }])
 
-    .controller('EventFormCtrl', ['$scope',function ($scope) {
+    .controller('EventFormCtrl', ['$scope', '$rootScope', '$window', function ($scope, $rootScope, $window) {
+        $rootScope.isStartPage = false;
+
+        $rootScope.goBack = function() {
+            $window.history.back();
+        };
+
         $scope.event = {
             id: 1,
             name: null,

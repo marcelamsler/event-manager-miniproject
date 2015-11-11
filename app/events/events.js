@@ -9,8 +9,10 @@ angular.module('eventManagerApp.events', ['ngRoute'])
         });
     }])
 
-    .controller('EventsCtrl', ['$scope', 'eventsService', '$q', function ( $scope, eventsService, $q ) {
+    .controller('EventsCtrl', ['$scope', 'eventsService', '$q', '$rootScope', function ( $scope, eventsService, $q, $rootScope ) {
+        $rootScope.isStartPage = true;
         $scope.events = [];
+
 
         eventsService
           .loadAllEvents()
