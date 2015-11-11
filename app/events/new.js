@@ -5,16 +5,15 @@ angular.module('eventManagerApp.events')
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events/new', {
             templateUrl: 'events/new.html',
-            controller: 'EventFormCtrl'
+            controller: 'EventFormCtrl',
+            data: {
+                isStartPage: false,
+                pageTitle: "New Event"
+            }
         });
     }])
 
-    .controller('EventFormCtrl', ['$scope', '$rootScope', '$window', function ($scope, $rootScope, $window) {
-        $rootScope.isStartPage = false;
-
-        $rootScope.goBack = function() {
-            $window.history.back();
-        };
+    .controller('EventFormCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
         $scope.event = {
             id: 1,
