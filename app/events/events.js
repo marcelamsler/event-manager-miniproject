@@ -27,7 +27,7 @@ angular.module('myApp.events', ['ngRoute'])
                     begin: "15.11.2015 19:00",
                     end: "15.11.2015 22:30"
                 },
-                maximalAmoutOfGuests: 150,
+                maximalAmountOfGuests: 150,
                 guests: []
             },
             {
@@ -46,7 +46,7 @@ angular.module('myApp.events', ['ngRoute'])
                     begin: "13.1.2016 19:00",
                     end: "13.1.2016 23:00"
                 },
-                maximalAmoutOfGuests: 12,
+                maximalAmountOfGuests: 12,
                 guests: []
             },
             {
@@ -65,12 +65,12 @@ angular.module('myApp.events', ['ngRoute'])
                     begin: "1.3.2016 19:00",
                     end: "2.3.2016 23:00"
                 },
-                maximalAmoutOfGuests: 350,
+                maximalAmountOfGuests: 350,
                 guests: []
             }
         ];
 
         $scope.slotsLeft = function( event ) {
-          return event.maximalAmoutOfGuests - event.guests.length;
+          return event.maximalAmountOfGuests - event.guests.length;
         };
     }]);
