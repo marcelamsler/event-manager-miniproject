@@ -12,6 +12,8 @@ angular.module('eventManagerApp.events')
     .controller('EventFormCtrl', ['$scope', '$rootScope', '$window', function ($scope, $rootScope, $window) {
         $rootScope.isStartPage = false;
 
+        $scope.minDate = new Date();
+
         $rootScope.goBack = function() {
             $window.history.back();
         };
