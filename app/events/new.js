@@ -27,7 +27,10 @@ angular.module('eventManagerApp.events')
                 plz: null,
                 city: null
             },
-            times: {},
+            times: {
+                begin: new Date(),
+                end: new Date()
+            },
             maximalAmountOfGuests: 0,
             guests: []
         }
