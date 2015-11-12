@@ -5,7 +5,7 @@ angular.module('eventManagerApp.events')
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events/new', {
             templateUrl: 'events/new.html',
-            controller: 'EventFormCtrl',
+            controller: 'EventNewCtrl',
             data: {
                 isStartPage: false,
                 pageTitle: "New Event"
@@ -13,7 +13,7 @@ angular.module('eventManagerApp.events')
         });
     }])
 
-    .controller('EventFormCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    .controller('EventNewCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
         $scope.event = {
             id: 1,
