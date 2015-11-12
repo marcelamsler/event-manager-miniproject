@@ -1,38 +1,42 @@
 <h2 class="md-title">General</h2>
-<md-content layout-padding class="autoScroll">
+<md-content layout-padding class="autoScroll" id="newEventContent">
+  <form name="newEvent">
+
     <md-input-container class="md-icon-float md-block">
         <label>Event Name</label>
         <md-icon md-svg-src="img/icons/bolt.svg" class="name"></md-icon>
         <input ng-model="event.name" type="text" ng-required="true">
     </md-input-container>
+
     <md-input-container class="md-icon-float md-block">
         <label>Target Audience</label>
         <md-icon md-svg-src="img/icons/sign-in.svg" class="name"></md-icon>
         <input ng-model="event.targetGroup" type="text">
     </md-input-container>
+
     <md-input-container class="md-icon-float md-block">
         <label>Description</label>
         <md-icon md-svg-src="img/icons/book.svg" class="name"></md-icon>
         <textarea ng-model="event.description"></textarea>
     </md-input-container>
 
-    <div layout layout-sm="column">
+    <div layout layout-sm="column" layout-md="column">
         <md-input-container class="md-icon-float" flex>
             <label>Maximum number of guests</label>
             <md-icon md-svg-src="img/icons/users.svg" class="name"></md-icon>
-            <input ng-model="user.maximalAmountOfGuests" type="number" step="1">
-        </md-input-container>
-        <md-input-container md-no-float class="md-icon-float md-block" flex>
-            <md-datepicker ng-model="event.times.begin" md-placeholder="Begin"></md-datepicker>
-        </md-input-container>
-        <md-input-container md-no-float class="md-icon-float md-block" flex>
-            <md-datepicker ng-model="event.times.end" md-placeholder="End"></md-datepicker>
+            <input ng-model="user.maximalAmountOfGuests" type="number" step="1" min="1">
         </md-input-container>
 
+        <div layout="row">
+            <md-datepicker name="startTime" md-min-date="minDateBegin" ng-model="event.times.begin" ng-change="changeMinDateEnd()" md-placeholder="Begin"></md-datepicker>
+            <md-datepicker name="endTime" md-min-date="minDateEnd" ng-model="event.times.end" md-placeholder="End"></md-datepicker>
+        </div>
     </div>
+
     <br/>
 
     <h2 class="md-title">Contributions</h2>
+
     <md-chips
             ng-model="event.contributionsDescription"
             placeholder="Add Contribution"
@@ -43,19 +47,26 @@
 
     <h2 class="md-title">Event Address</h2>
 
-    <md-content layout-padding layout="row" layout-sm="column">
+    <md-content layout-padding layout="row" layout-sm="column" layout-md="column">
 
         <md-input-container md-block flex>
             <label>Your Name</label>
             <input ng-model="event.location.name" type="text">
         </md-input-container>
+
         <md-input-container flex>
             <label>Street</label>
             <input ng-model="event.location.street" type="text">
         </md-input-container>
+
         <md-input-container flex>
             <label>Zip</label>
             <input ng-model="event.location.plz" type="text">
         </md-input-container>
     </md-content>
+
+    <md-content layout-padding layout="row" layout-sm="column" layout-align="end">
+        <md-button class="md-raised md-primary">Save</md-button>
+    </md-content>
+  </form>
 </md-content>
