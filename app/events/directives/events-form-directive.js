@@ -3,4 +3,6 @@ angular.module('eventManagerApp.events').directive('eventsFormDirective', functi
         templateUrl: 'events/templates/form.html',
         scope: false
     };
+
+
 });

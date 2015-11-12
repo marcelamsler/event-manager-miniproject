@@ -84,8 +84,10 @@
                 // Access server API
                 // return $http({method: 'GET', url: 'http://localhost:8080/api/events'});
             },
-            loadEvent: function () {
-                return null
+            loadEvent: function (id) {
+                return fakeResponse.data.events.filter(function(event) {
+                    return event.id == id;
+                })[0];
             }
 
         };
