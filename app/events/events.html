@@ -9,7 +9,7 @@
         <div class="md-list-item-text" layout="column">
           <h3>{{ event.name }}</h3>
           <h4>{{ event.description }}</h4>
-          <p>{{ event.times.begin }} - {{event.times.end}}</p>
+          <p>{{ event.times.begin | date:'dd.M H:mm' }} - {{ event.times.end | date:'dd.M H:mm' }}</p>
         </div>
 
         <md-button class="md-icon-button" aria-label="Open" href="#/events/{{event.id}}/edit">
