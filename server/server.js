@@ -75,7 +75,7 @@ var event1 = createEvent(
     "HSR-Party",
     "Party an der HSR",
     "Studenten",
-    "Kuchen",
+    ["Kuchen"],
     {
         name: "HSR",
         street: "Oberseestrasse",
@@ -95,7 +95,7 @@ var event2 = createEvent(
     "Dinner",
     "Mitarbeiterdinner der HSR",
     "HSR Mitarbeiter",
-    null,
+    [],
     {
         name: "HSR",
         street: "Oberseestrasse",

@@ -20,7 +20,7 @@
                         name: "Studiengangabend",
                         description: "auf ein Neues",
                         targetGroup: "Stud I",
-                        contributionsDescription: "Desserts gem. Doodle",
+                        contributionsDescription: ["Desserts gem. Doodle"],
                         location: {
                             name: "HSR",
                             street: "Oberseestrasse",
@@ -28,8 +28,8 @@
                             city: "Rapperswil"
                         },
                         times: {
-                            begin: "15.11.2015 19:00",
-                            end: "15.11.2015 22:30"
+                            begin: new Date('2015-11-20T18:00:00'),
+                            end: new Date('2015-11-20T18:00:00')
                         },
                         maximalAmountOfGuests: 150,
                         guests: []
@@ -39,7 +39,7 @@
                         name: "Birthday Party",
                         description: "man wird alt",
                         targetGroup: "Freunde",
-                        contributionsDescription: "gute Laune",
+                        contributionsDescription: ["gute Laune"],
                         location: {
                             name: "My Flat",
                             street: "Kniestrasse",
@@ -47,8 +47,8 @@
                             city: "Rapperswil"
                         },
                         times: {
-                            begin: "13.1.2016 19:00",
-                            end: "13.1.2016 23:00"
+                            begin: new Date('2015-11-20T18:00:00'),
+                            end: new Date('2015-11-20T18:00:00')
                         },
                         maximalAmountOfGuests: 12,
                         guests: []
@@ -58,7 +58,7 @@
                         name: "Fette Fete",
                         description: "riesige Fete",
                         targetGroup: "alle",
-                        contributionsDescription: "cash",
+                        contributionsDescription: ["cash"],
                         location: {
                             name: "Club Fete",
                             street: "rue du fete",
@@ -66,8 +66,8 @@
                             city: "Genf"
                         },
                         times: {
-                            begin: "1.3.2016 19:00",
-                            end: "2.3.2016 23:00"
+                            begin: new Date('2015-11-20T18:00:00'),
+                            end: new Date('2015-11-20T18:00:00')
                         },
                         maximalAmountOfGuests: 350,
                         guests: []
@@ -84,8 +84,15 @@
                 // Access server API
                 // return $http({method: 'GET', url: 'http://localhost:8080/api/events'});
             },
-            loadEvent: function () {
-                return null
+            loadEvent: function (id) {
+                return fakeResponse.data.events.filter(function(event) {
+                    return event.id == id;
+                })[0];
+            },
+            saveEvent: function(event) {
+                fakeResponse.data.events.filter(function(event) {
+                    return event.id == id;
+                })[0] = event;
             }
 
         };
