@@ -1,6 +1,6 @@
 <html src="events.js"></html>
 
-<div ng-controller="EventsCtrl" ng-cloak>
+<div ng-cloak>
   <md-list>
     <md-subheader class="md-no-sticky">All Events</md-subheader>
 
@@ -16,7 +16,7 @@
             Edit
         </md-button>
 
-        <md-button class="md-icon-button" aria-label="Open">
+        <md-button class="md-icon-button" aria-label="Open" href="#/events/{{event.id}}/show">
           Öffnen
         </md-button>
     </md-list-item>
