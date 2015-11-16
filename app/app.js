@@ -13,4 +13,8 @@ angular.module('eventManagerApp', [
   $mdThemingProvider.theme('default')
                     .primaryPalette('blue')
                     .accentPalette('orange');
-}]);
+}])
+.value('scDateTimeConfig', {
+		    defaultTheme: 'material',
+		    displayTwentyfour: true
+});
