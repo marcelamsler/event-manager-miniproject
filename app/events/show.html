@@ -23,32 +23,36 @@
     </md-list-item>
     <md-list-item>
         <h3 class="md-title">Start Time</h3>
-        <span>{{event.times.begin}}</span>
+        <span>{{event.times.begin | date:'dd.M. H:mm' }}</span>
     </md-list-item>
     <md-list-item>
         <h3 class="md-title">End Time</h3>
-        <span>{{event.times.end}}</span>
-    </md-list-item>
-    <h3 class="md-title">Contributions</h3>
-    <md-list-item ng-repeat="contribution in event.contributionsDescription">
-        <span>{{contribution}}</span>
+        <span>{{event.times.end | date:'dd.M. H:mm' }}</span>
     </md-list-item>
 </md-list>
 
-<md-content layout-padding class="autoScroll">
+<h3 class="md-title">Contributions</h3>
+<md-list>
+    <md-list-item ng-repeat="contribution in event.contributionsDescription">
+        <p>{{contribution}}</p>
+    </md-list-item>
+</md-list>
 
-    <h2 class="md-title">Event Address</h2>
+<h3 class="md-title">Guests</h3>
+<md-list>
+    <md-list-item class="md-3-line" ng-repeat="guest in event.guests">
+        <div class="md-list-item-text" ng-class="{guestCanceled: guest.canceled}" layout="column">
+            <h3>{{ guest.name }}</h3>
+            <h4>{{ guest.conribution }}</h4>
+            <p>{{ guest.comment }}</p>
+        </div>
+    </md-list-item>
+</md-list>
 
-    <md-content layout-padding layout="column" layout-sm="column" layout-md="column">
-        <md-list-item>
-            <span>{{event.location.name}}</span>
-        </md-list-item>
-        <md-list-item>
-            <span>{{event.location.street}}</span>
-        </md-list-item>
-        <md-list-item>
-            <span>{{event.location.plz}}</span>
-        </md-list-item>
-    </md-content>
+<h2 class="md-title">Event Address</h2>
 
-</md-content>
+<div layout="column">
+    <span>{{event.location.name}}</span>
+    <span>{{event.location.street}}</span>
+    <span>{{event.location.plz}}</span>
+</div>
