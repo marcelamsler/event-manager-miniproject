@@ -4,7 +4,8 @@
 angular.module('eventManagerApp', [
   'ngRoute',
   'eventManagerApp.events',
-  'ngMaterial'
+  'ngMaterial',
+  'scDateTime'
 ])
 .config(['$routeProvider', '$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
   $routeProvider.otherwise({redirectTo: '/events'});
