@@ -34,6 +34,17 @@
 <md-divider></md-divider>
 
 
+<h3 class="md-title">Guests</h3>
+<md-list>
+    <md-list-item class="md-3-line" ng-repeat="guest in event.guests">
+        <div class="md-list-item-text" ng-class="{guestCanceled: guest.canceled}" layout="column">
+            <h3>{{ guest.name }}</h3>
+            <h4>{{ guest.conribution }}</h4>
+            <p>{{ guest.comment }}</p>
+        </div>
+    </md-list-item>
+</md-list>
+
 <md-content layout-padding class="autoScroll">
 
     <h2 class="md-title">Event Address</h2>
