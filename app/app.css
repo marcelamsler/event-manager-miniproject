@@ -82,3 +82,26 @@ md-input-container.md-icon-float.md-input-focused, md-input-container.md-icon-fl
 .md-default-theme .md-calendar-date-disabled,  .md-calendar-date-disabled, .md-default-theme .md-calendar-month-label-disabled ,  .md-calendar-month-label-disabled {
 	color: rgba(0,0,0,0.26);
 }
+
+
+/** Fixes for dateTime picker **/
+.time-date > .control > .full-title,
+.time-date.full-mode > .buttons,
+.time-date > .control > .slider > .date-control > .days .day-cell.selected {
+  background-color: #2196F3;
+}
+
+.time-date > .control > .slider > .date-control > .days .day-cell.today,
+.time-date button,
+.time-date .button {
+  color: #2196F3;
+}
+
+.time-date > .control > .slider > .date-control > .days .day-cell.selected {
+  color: #FFFFFF;
+}
+
+.time-date > .control > .slider > .date-control > .days .day-cell:hover,
+.time-date > .control > .slider > .date-control > .days .day-cell:active {
+    background-color: rgba(33, 150, 243, 0.71);
+}
