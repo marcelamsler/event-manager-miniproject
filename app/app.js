@@ -4,7 +4,8 @@
 angular.module('eventManagerApp', [
   'ngRoute',
   'eventManagerApp.events',
-  'ngMaterial'
+  'ngMaterial',
+  'scDateTime'
 ])
 .config(['$routeProvider', '$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
   $routeProvider.otherwise({redirectTo: '/events'});
@@ -12,4 +13,8 @@ angular.module('eventManagerApp', [
   $mdThemingProvider.theme('default')
                     .primaryPalette('blue')
                     .accentPalette('orange');
-}]);
+}])
+.value('scDateTimeConfig', {
+    displayTwentyfour: true,
+    defaultTheme: 'material'
+});

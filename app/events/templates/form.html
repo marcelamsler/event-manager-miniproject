@@ -23,14 +23,35 @@
     <div layout layout-sm="column" layout-md="column">
         <md-input-container class="md-icon-float" flex>
             <label>Maximum number of guests</label>
-            <md-icon md-svg-src="img/icons/users.svg" class="name"></md-icon>
+            <md-icon md-svg-src="img/icons/ic_person_add_48px.svg" class="name"></md-icon>
             <input ng-model="user.maximalAmountOfGuests" type="number" step="1" min="1">
         </md-input-container>
 
-        <div layout="row">
-            <md-datepicker name="startTime" md-min-date="minDateBegin" ng-model="event.times.begin" ng-change="changeMinDateEnd()" md-placeholder="Begin"></md-datepicker>
-            <md-datepicker name="endTime" md-min-date="minDateEnd" ng-model="event.times.end" md-placeholder="End"></md-datepicker>
-        </div>
+        <md-input-container class="md-icon-float" flex>
+            <md-icon md-svg-src="img/icons/ic_access_time_48px.svg" class="name"></md-icon>
+            <input class="form-control"
+                   type='text'
+                   name="startTime"
+                   ng-model='event.times.begin'
+                   placeholder="Start Time"
+                   date-time-picker-input
+                   display-mode="full"
+                   display-format="d MMMM yyyy HH:mm"
+                   mindate="minDateBegin" />
+        </md-input-container>
+
+        <md-input-container class="md-icon-float" flex>
+            <md-icon md-svg-src="img/icons/ic_access_alarms_48px.svg" class="name"></md-icon>
+            <input class="form-control"
+                   type='text'
+                   name="endTime"
+                   ng-model='event.times.end'
+                   placeholder="End Time"
+                   date-time-picker-input
+                   display-mode="full"
+                   display-format="d MMMM yyyy HH:mm"
+                   mindate="minDateEnd" />
+        </md-input-container>
     </div>
 
     <br/>
