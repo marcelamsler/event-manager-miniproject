@@ -1,18 +1,11 @@
-'use strict';
+//angular.module('eventManagerApp.events')
 
-angular.module('eventManagerApp.events')
+define([], function() {
+  function EventEditCtrl($scope, eventsService, $routeParams) {
+    $scope.event = eventsService.loadEvent($routeParams.id);
+  };
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/events/:id/edit', {
-            templateUrl: 'events/edit.html',
-            controller: 'EventEditCtrl',
-            data: {
-                isStartPage: false,
-                pageTitle: "Edit Event"
-            }
-        });
-    }])
+  EventEditCtrl.$inject=['$scope', 'eventsService', '$routeParams'];
 
-    .controller('EventEditCtrl', ['$scope', 'eventsService', '$routeParams', function ($scope, eventsService, $routeParams) {
-        $scope.event = eventsService.loadEvent($routeParams.id);
-    }]);
+  return EventEditCtrl;
+});

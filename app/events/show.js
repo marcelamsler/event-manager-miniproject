@@ -1,18 +1,11 @@
-'use strict';
+//angular.module('eventManagerApp.events')
 
-angular.module('eventManagerApp.events')
+define([], function() {
+  function EventShowCtrl($scope, eventsService, $routeParams) {
+    $scope.event = eventsService.loadEvent($routeParams.id);
+  };
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/events/:id/show', {
-            templateUrl: 'events/show.html',
-            controller: 'EventShowCtrl',
-            data: {
-                isStartPage: false,
-                pageTitle: "Show Event"
-            }
-        });
-    }])
+  EventShowCtrl.$inject=['$scope', 'eventsService', '$routeParams'];
 
-    .controller('EventShowCtrl', ['$scope', 'eventsService', '$routeParams', function ($scope, eventsService, $routeParams) {
-        $scope.event = eventsService.loadEvent($routeParams.id);
-    }]);
+  return EventShowCtrl;
+});

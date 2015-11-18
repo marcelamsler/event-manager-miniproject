@@ -1,39 +1,26 @@
-'use strict';
+//angular.module('eventManagerApp.events')
 
-angular.module('eventManagerApp.events')
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/events/new', {
-            templateUrl: 'events/new.html',
-            controller: 'EventNewCtrl',
-            data: {
-                isStartPage: false,
-                pageTitle: "New Event"
-            }
-        });
-    }])
-
-    .controller('EventNewCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-        $scope.event = {
-            id: 1,
+define([], function() {
+  function EventNewCtrl($scope, $rootScope) {
+    $scope.event = {
+        id: 1,
+        name: null,
+        description: null,
+        targetGroup: null,
+        contributionsDescription: [],
+        location: {
             name: null,
-            description: null,
-            targetGroup: null,
-            contributionsDescription: [],
-            location: {
-                name: null,
-                street: null,
-                plz: null,
-                city: null
-            },
-            times: {
-                begin: new Date(),
-                end: new Date()
-            },
-            maximalAmountOfGuests: 0,
-            guests: []
-        }
+            street: null,
+            plz: null,
+            city: null
+        },
+        times: {
+            begin: new Date(),
+            end: new Date()
+        },
+        maximalAmountOfGuests: 0,
+        guests: []
+    };
 
     $scope.today = new Date();
     $scope.minDateBegin = new Date(
@@ -54,5 +41,9 @@ angular.module('eventManagerApp.events')
       $scope.minDateEnd = $scope.event.times.begin ? $scope.event.times.begin : $scope.minDateBegin;
     };
     $scope.changeMinDateEnd();
+  };
 
-}]);
+  EventNewCtrl.$inject=['$scope', '$rootScope'];
+
+  return EventNewCtrl;
+});

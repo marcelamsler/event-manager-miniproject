@@ -1,32 +1,25 @@
-'use strict';
+//angular.module('eventManagerApp.events')
 
-angular.module('eventManagerApp.events', ['ngRoute'])
+define([], function() {
+  function EventsCtrl($scope, eventsService, $q, $rootScope) {
+    $scope.events = [];
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/events', {
-            templateUrl: 'events/events.html',
-            controller: 'EventsCtrl',
-            data: {
-                isStartPage: true,
-                pageTitle: "Event Manager Overview"
-            }
+    eventsService
+        .loadAllEvents()
+        .then(function (response) {
+            $scope.events = [].concat(response.data.events);
         });
-    }])
 
-    .controller('EventsCtrl', ['$scope', 'eventsService', '$q', '$rootScope', function ($scope, eventsService, $q, $rootScope) {
-        $scope.events = [];
+    $scope.slotsLeft = function (event) {
+        //return event.maximalAmountOfGuests - event.guests.length;
+    };
 
-        eventsService
-            .loadAllEvents()
-            .then(function (response) {
-                $scope.events = [].concat(response.data.events);
-            });
+    $scope.createNewEvent = function() {
 
-        $scope.slotsLeft = function (event) {
-            //return event.maximalAmountOfGuests - event.guests.length;
-        };
+    };
+  };
 
-        $scope.createNewEvent = function() {
+  EventsCtrl.$inject=['$scope', 'eventsService', '$q', '$rootScope'];
 
-        }
-    }]);
+  return EventsCtrl;
+});
