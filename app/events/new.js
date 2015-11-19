@@ -16,7 +16,7 @@ angular.module('eventManagerApp.events')
     .controller('EventNewCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
         $scope.event = {
-            id: 1,
+            id: UUIDService.getRandomUuid(),
             name: null,
             description: null,
             targetGroup: null,
