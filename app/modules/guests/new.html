@@ -8,13 +8,14 @@
             <input ng-model="guest.name" type="text" ng-required="true">
         </md-input-container>
 
-        <md-input-container class="md-icon-float md-block">
+        <md-input-container class="md-icon-float md-block" >
             <label>Contribution</label>
             <md-icon md-svg-src="img/icons/ic_group_24px.svg" class="name"></md-icon>
-            <md-select ng-model="guest.contribution">
+            <md-select ng-model="guest.contribution" style="margin-left: 40px;">
                 <md-option ng-repeat="contribution in event.freeContributions" value="{{contribution}}">
                     {{contribution}}
                 </md-option>
+            </md-select>
         </md-input-container>
 
         <md-input-container class="md-icon-float md-block">
