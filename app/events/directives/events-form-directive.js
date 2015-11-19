@@ -9,5 +9,7 @@ angular.module('eventManagerApp.events')
     })
 
     .controller('EventsFormCtrl', ['$scope', 'eventsService', function ($scope, eventsService) {
-        $scope.saveEvent = function() {eventsService.saveEvent($scope.event)};
+        $scope.save = function() {
+          eventsService.saveEvent($scope.event);
+        };
     }]);
