@@ -89,10 +89,10 @@
                     return event.id == id;
                 })[0];
             },
-            saveEvent: function(event) {
+            saveEvent: function(eventToSave) {
                 fakeResponse.data.events.filter(function(event) {
-                    return event.id == id;
-                })[0] = event;
+                    return event.id == eventToSave.id;
+                })[0] = eventToSave;
             }
 
         };
