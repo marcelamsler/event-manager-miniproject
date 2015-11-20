@@ -13,8 +13,8 @@ angular.module('eventManagerApp.events')
           eventsService.saveEvent($scope.event);
           $location.path( '/events' );
         };
-        $scope.cancel = function() {
+        //$scope.cancel = function() {
           // TODO - don't save event.
-          $location.path( '/events' );
-        };
+        //  $location.path( '/events' );
+        //};
     }]);

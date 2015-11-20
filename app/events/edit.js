@@ -13,6 +13,12 @@ angular.module('eventManagerApp.events')
         });
     }])
 
-    .controller('EventEditCtrl', ['$scope', 'eventsService', '$routeParams', function ($scope, eventsService, $routeParams) {
-        $scope.event = eventsService.loadEvent($routeParams.id);
+    .controller('EventEditCtrl', ['$scope', 'eventsService', '$routeParams', '$location', function ($scope, eventsService, $routeParams, $location) {
+        $scope.originalEvent = eventsService.loadEvent($routeParams.id);
+        $scope.event = angular.copy( $scope.originalEvent );
+
+        $scope.cancel = function() {
+          $scope.event = $scope.originalEvent;
+          $location.path( '/events' );
+        };
     }]);
