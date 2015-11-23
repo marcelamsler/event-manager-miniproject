@@ -26,8 +26,8 @@ angular.module('eventManagerApp.guests')
         $scope.event = eventsService.loadEvent($routeParams.event_id);
 
         $scope.join = function() {
-          $scope.event.guests.push( $scope.guest );
-          eventsService.saveEvent( $scope.event );
+          // TODO: use server API
+          eventsService.addGuest( $scope.event.id, $scope.guest );
           $location.path( '/events' );
         };
 

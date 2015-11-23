@@ -93,6 +93,15 @@
                 fakeResponse.data.events.filter(function(event) {
                     return event.id == eventToSave.id;
                 })[0] = eventToSave;
+            },
+            addGuest: function(eventID, newGuest) {
+                var foundEvent = fakeResponse.data.events.filter(function(event) {
+                  return event.id == eventID;
+                })[0];
+
+                if ( foundEvent.guests.length < foundEvent.maximalAmountOfGuests ) {
+                  foundEvent.guests.push( newGuest );
+                }
             }
 
         };
