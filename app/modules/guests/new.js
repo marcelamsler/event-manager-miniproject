@@ -13,7 +13,7 @@ angular.module('eventManagerApp.guests')
         });
     }])
 
-    .controller('GuestNewCtrl', ['$scope', function ($scope) {
+    .controller('GuestNewCtrl', ['$scope', 'eventsService', '$routeParams', '$location', function ($scope, eventsService, $routeParams, $location) {
 
         $scope.guest = {
             id: UUIDService.getRandomUuid(),
@@ -23,10 +23,16 @@ angular.module('eventManagerApp.guests')
             canceled: false
         };
 
+        $scope.event = eventsService.loadEvent($routeParams.event_id);
 
-        $scope.event = {
-            title: "event title should be loaded from server",
-            freeContributions: ['cookies', 'bla', 'magic-cookies']
+        $scope.join = function() {
+          $scope.event.guests.push( $scope.guest );
+          eventsService.saveEvent( $scope.event );
+          $location.path( '/events' );
+        };
+
+        $scope.cancel = function() {
+          $location.path( '/events' );
         };
 
     }]);
