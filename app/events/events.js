@@ -23,10 +23,14 @@ angular.module('eventManagerApp.events', ['ngRoute'])
             });
 
         $scope.slotsLeft = function (event) {
-            //return event.maximalAmountOfGuests - event.guests.length;
+            return event.maximalAmountOfGuests - event.guests.length;
         };
 
         $scope.createNewEvent = function() {
 
+        }
+
+        $scope.canJoin = function ( event ) {
+          return $scope.slotsLeft( event ) > 0;
         }
     }]);
