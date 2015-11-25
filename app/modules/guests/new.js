@@ -28,8 +28,11 @@ angular.module('eventManagerApp.guests')
         });
 
         $scope.join = function() {
-          eventsService.addGuest( $scope.event, $scope.guest );
-          $location.path( '/events' );
+          eventsService.addGuest( $scope.event, $scope.guest).then(function() {
+              eventsService.loadAllEvents().then(function() {
+                  $location.path( '/events' );
+              });
+          });
         };
 
         $scope.cancel = function() {

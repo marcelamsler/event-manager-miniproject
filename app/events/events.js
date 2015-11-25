@@ -26,12 +26,8 @@ angular.module('eventManagerApp.events', ['ngRoute'])
             $scope.events = eventsService.events;
         }
 
-        $scope.canJoin = function ( event ) {
-            if (event.maximalAmountOfGuests == null) {
-                return true;
-            } else {
-                return event.maximalAmountOfGuests - event.guests.length;
-            }
+        $scope.canJoin = function (event) {
+            return event.maximalAmountOfGuests - event.guests.length > 0;
         };
 
     }]);
