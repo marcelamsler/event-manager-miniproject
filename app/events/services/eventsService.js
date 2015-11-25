@@ -41,6 +41,17 @@ angular.module('eventManagerApp.events').service('eventsService', ['$http', func
             });
     };
 
+    this.updateEvent = function ( eventToUpdate ) {
+        return $http.post( 'http://localhost:8080/api/events/' + eventToUpdate.id, eventToUpdate )
+            .then(function (response) {
+                return response.data;
+            })
+            .catch(function (err) {
+                $log.error(err);
+                return {};
+            });
+    };
+
     this.addGuest = function (eventID, newGuest) {
 
         var event = this.loadEvent(eventId);
