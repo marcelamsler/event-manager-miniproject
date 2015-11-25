@@ -23,11 +23,11 @@ Done. Please Verify
 
 * Als Gast möchte ich meine Anmeldung editieren können, um etwas anderes mitbringen zu können oder den Kommentar anzupassen.
 
-Todo Marcel
+Done
 
 * Als Gast möchte ich eine Anmeldung canceln können, sodas der Gastgeber sieht, wer sich wieder abgemeldet hat.
 
-Done. Darstellung Todo
+Done.
 
 * Als Gast möchte ich sehen können, was andere Gäste mitbringen, um nicht das Gleiche mitzubringen.
 
