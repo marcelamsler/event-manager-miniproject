@@ -12,10 +12,21 @@ angular.module('eventManagerApp.events')
             }
         });
     }])
-
     .controller('EventShowCtrl', ['$scope', 'eventsService', '$routeParams', function ($scope, eventsService, $routeParams) {
-        eventsService.loadEvent($routeParams.id).then( function( response ){
-          $scope.event = response;
-        });
 
+        refreshEvent();
+
+        function refreshEvent() {
+            eventsService.loadEvent($routeParams.id).then( function( response ){
+                $scope.event = response;
+            });
+        }
+
+        $scope.cancelGuest = function(guest) {
+            guest.canceled = true;
+            eventsService.updateGuest($scope.event.id, guest).then(function () {
+                refreshEvent();
+            });
+        }
     }]);
+

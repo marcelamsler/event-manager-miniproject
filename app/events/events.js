@@ -22,7 +22,6 @@ angular.module('eventManagerApp.events', ['ngRoute'])
                     $scope.events = response.events;
                 });
         } else {
-            console.log("load events from service");
             $scope.events = eventsService.events;
         }
 
