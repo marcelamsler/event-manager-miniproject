@@ -8,13 +8,13 @@ angular.module('eventManagerApp.events')
         };
     })
 
-    .controller('EventsFormCtrl', ['$scope', 'eventsService', '$location', function ( $scope, eventsService, $location ) {
-        $scope.save = function() {
-          eventsService.saveEvent($scope.event);
-          $location.path( '/events' );
+    .controller('EventsFormCtrl', ['$scope', 'eventsService', '$location', function ($scope, eventsService, $location) {
+        $scope.save = function () {
+            eventsService.saveEvent($scope.event).then(function () {
+                eventsService.loadAllEvents().then(function () {
+                    $location.path('/events');
+                });
+            });
+
         };
-        //$scope.cancel = function() {
-          // TODO - don't save event.
-        //  $location.path( '/events' );
-        //};
     }]);

@@ -31,7 +31,7 @@ angular.module('eventManagerApp.guests')
           $location.path( '/events' );
         };
 
-        $scope.cancel = function() {
+        $scope.cancel = function() {d
           $location.path( '/events' );
         };
 
