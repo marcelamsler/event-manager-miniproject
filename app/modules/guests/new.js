@@ -23,7 +23,7 @@ angular.module('eventManagerApp.guests')
             canceled: false
         };
 
-        $scope.event = eventsService.loadEvent($routeParams.event_id).then(function(response){
+        eventsService.loadEvent($routeParams.event_id).then(function(response){
             $scope.event = response;
         });
 
