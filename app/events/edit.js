@@ -14,8 +14,17 @@ angular.module('eventManagerApp.events')
     }])
 
     .controller('EventEditCtrl', ['$scope', 'eventsService', '$routeParams', '$location', function ($scope, eventsService, $routeParams, $location) {
-        $scope.originalEvent = eventsService.loadEvent($routeParams.id);
-        $scope.event = angular.copy( $scope.originalEvent );
+        eventsService.loadEvent($routeParams.id).then( function( response ) {
+          $scope.event = response;
+        });
+
+        $scope.save = function () {
+            eventsService.updateEvent($scope.event).then(function () {
+                eventsService.loadAllEvents().then(function () {
+                    $location.path('/events');
+                });
+            });
+        };
 
         $scope.cancel = function() {
           $scope.event = $scope.originalEvent;
