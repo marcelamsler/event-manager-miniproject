@@ -23,15 +23,16 @@ angular.module('eventManagerApp.guests')
             canceled: false
         };
 
-        $scope.event = eventsService.loadEvent($routeParams.event_id);
+        $scope.event = eventsService.loadEvent($routeParams.event_id).then(function(response){
+            $scope.event = response;
+        });
 
         $scope.join = function() {
-          // TODO: use server API
-          eventsService.addGuest( $scope.event.id, $scope.guest );
+          eventsService.addGuest( $scope.event, $scope.guest );
           $location.path( '/events' );
         };
 
-        $scope.cancel = function() {d
+        $scope.cancel = function() {
           $location.path( '/events' );
         };
 

@@ -41,11 +41,10 @@ angular.module('eventManagerApp.events').service('eventsService', ['$http', func
             });
     };
 
-    this.addGuest = function (eventID, newGuest) {
+    this.addGuest = function (event, newGuest) {
 
-        var event = this.loadEvent(eventId);
         if (event.guests.length < event.maximalAmountOfGuests) {
-            return $http.post('http://localhost:8080/api/events/' + eventID + 'guests', newGuest)
+            return $http.post('http://localhost:8080/api/events/' + eventId + 'guests', newGuest)
                 .then(function (response) {
                     return response.data;
                 })
@@ -59,4 +58,5 @@ angular.module('eventManagerApp.events').service('eventsService', ['$http', func
     };
 
 
-}]);
+}])
+;

@@ -13,7 +13,7 @@ angular.module('eventManagerApp.events')
         });
     }])
 
-    .controller('EventNewCtrl', ['$scope', '$location', function ($scope, $location) {
+    .controller('EventNewCtrl', ['$scope', 'eventsService', '$location', function ($scope, eventsService, $location) {
         $scope.save = function () {
             eventsService.saveEvent($scope.event).then(function () {
                 eventsService.loadAllEvents().then(function () {
@@ -31,7 +31,7 @@ angular.module('eventManagerApp.events')
             name: null,
             description: null,
             targetGroup: null,
-            contributionsDescription: [],
+            contributions: [],
             location: {
                 name: null,
                 street: null,

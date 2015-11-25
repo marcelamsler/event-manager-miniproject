@@ -20,7 +20,7 @@ var postRequest = http.request(postOptions, function(response) {
 });
 
 // post the data
-var data = {"name":"HSR-Party","description":"Party an der HSR","targetGroup":"Studenten","contributionsDescription":"Kuchen","location":{"name":"hsr","street":"Oberseestrasse","zipCode":8640,"city":"Rapperswil"}};
+var data = {"name":"HSR-Party","description":"Party an der HSR","targetGroup":"Studenten","contributions":"Kuchen","location":{"name":"hsr","street":"Oberseestrasse","zipCode":8640,"city":"Rapperswil"}};
 postRequest.write(JSON.stringify(data));
 postRequest.end();
 
@@ -65,7 +65,7 @@ var postRequest = http.request(postOptions, function(response) {
 });
 
 // post the data
-var data = {"targetGroup": "Studenten & Allumni", "contributionsDescription": "Kuchen oder anderes Dessert"}
+var data = {"targetGroup": "Studenten & Allumni", "contributions": "Kuchen oder anderes Dessert"}
 postRequest.write(JSON.stringify(data));
 postRequest.end();
 

@@ -19,14 +19,14 @@ var eventId = 0;
 var guestId = 0;
 var events = [];
 
-function createEvent(id, name, description, targetGroup, contributionsDescription, location, times){
+function createEvent(id, name, description, targetGroup, contributions, location, times){
     if(name) {
         var event = {
             id: (id) ? id : ++eventId,
             name : name,
             description : description,
             targetGroup: targetGroup,
-            contributionsDescription: contributionsDescription,
+            contributions: contributions,
             location:location,
             times : times,
             guests:[]
@@ -137,7 +137,7 @@ app.post('/api/events', function(request, response) {
        request.body.name,
        request.body.description,
        request.body.targetGroup,
-       request.body.contributionsDescription,
+       request.body.contributions,
        request.body.location,
        request.body.times
    );
@@ -169,8 +169,8 @@ app.post('/api/events/:id', function(request, response) {
 		if(request.body.targetGroup && event.targetGroup != request.body.targetGroup) {
 			event.targetGroup = request.body.targetGroup;
 		}
-		if(request.body.contributionsDescription && event.contributionsDescription != request.body.contributionsDescription) {
-			event.contributionsDescription = request.body.contributionsDescription;
+		if(request.body.contributions && event.contributions != request.body.contributions) {
+			event.contributions = request.body.contributions;
 		}
 		if(request.body.location && event.location != request.body.location) {
 			event.location = request.body.location;
