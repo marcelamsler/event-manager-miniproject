@@ -1,32 +1,32 @@
 /* app css stylesheet */
 
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+    content: "[";
 }
 
 .menu:after {
-  content: "]";
+    content: "]";
 }
 
 .menu > li {
-  display: inline;
+    display: inline;
 }
 
 .menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+    content: "|";
+    padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+    content: "";
+    padding: 0;
 }
 
 #addEventBtn {
@@ -36,11 +36,12 @@
 }
 
 #newEventContent {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 .guestCanceled {
-  color: #DDD;
+    color: #dd0506;
+    text-decoration: line-through;
 }
 
 /** Fixes for Angular-Material-Weirdness **/
@@ -52,53 +53,61 @@ md-input-container.md-icon-float.md-input-focused, md-input-container.md-icon-fl
     background-color: white;
 }
 
-.md-calendar.md-default-theme tr:last-child td , .md-calendar tr:last-child td {
-	border-bottom-color: rgb(238,238,238);
-}
-.md-default-theme .md-calendar-day-header ,  .md-calendar-day-header {
-	background: rgb(224,224,224);
-	color: rgba(0,0,0,0.87);
-}
-.md-default-theme .md-calendar-date.md-focus .md-calendar-date-selection-indicator ,  .md-calendar-date.md-focus .md-calendar-date-selection-indicator {
-	background: rgb(224,224,224);
-}
-.md-default-theme .md-calendar-date-selection-indicator:hover ,  .md-calendar-date-selection-indicator:hover {
-	background: rgb(224,224,224);
-}
-/** Theme styles for mdCalendar. */.md-calendar.md-default-theme , .md-calendar {
-	color: rgba(0,0,0,0.87);
-}
-.md-default-theme .md-calendar-date.md-calendar-date-today .md-calendar-date-selection-indicator ,  .md-calendar-date.md-calendar-date-today .md-calendar-date-selection-indicator {
-	border: 1px solid rgb(16,108,200);
-}
-.md-default-theme .md-calendar-date.md-calendar-date-today.md-calendar-date-disabled ,  .md-calendar-date.md-calendar-date-today.md-calendar-date-disabled {
-	color: rgba(16,108,200,0.6);
-}
-.md-default-theme .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator,  .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-default-theme .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator ,  .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator {
-	background: rgb(16,108,200);
-	color: rgba(255,255,255,0.87);
-	border-color: transparent;
-}
-.md-default-theme .md-calendar-date-disabled,  .md-calendar-date-disabled, .md-default-theme .md-calendar-month-label-disabled ,  .md-calendar-month-label-disabled {
-	color: rgba(0,0,0,0.26);
+.md-calendar.md-default-theme tr:last-child td, .md-calendar tr:last-child td {
+    border-bottom-color: rgb(238, 238, 238);
 }
 
+.md-default-theme .md-calendar-day-header, .md-calendar-day-header {
+    background: rgb(224, 224, 224);
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.md-default-theme .md-calendar-date.md-focus .md-calendar-date-selection-indicator, .md-calendar-date.md-focus .md-calendar-date-selection-indicator {
+    background: rgb(224, 224, 224);
+}
+
+.md-default-theme .md-calendar-date-selection-indicator:hover, .md-calendar-date-selection-indicator:hover {
+    background: rgb(224, 224, 224);
+}
+
+/** Theme styles for mdCalendar. */
+.md-calendar.md-default-theme, .md-calendar {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.md-default-theme .md-calendar-date.md-calendar-date-today .md-calendar-date-selection-indicator, .md-calendar-date.md-calendar-date-today .md-calendar-date-selection-indicator {
+    border: 1px solid rgb(16, 108, 200);
+}
+
+.md-default-theme .md-calendar-date.md-calendar-date-today.md-calendar-date-disabled, .md-calendar-date.md-calendar-date-today.md-calendar-date-disabled {
+    color: rgba(16, 108, 200, 0.6);
+}
+
+.md-default-theme .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-default-theme .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator {
+    background: rgb(16, 108, 200);
+    color: rgba(255, 255, 255, 0.87);
+    border-color: transparent;
+}
+
+.md-default-theme .md-calendar-date-disabled, .md-calendar-date-disabled, .md-default-theme .md-calendar-month-label-disabled, .md-calendar-month-label-disabled {
+    color: rgba(0, 0, 0, 0.26);
+}
 
 /** Fixes for dateTime picker **/
 .time-date > .control > .full-title,
 .time-date.full-mode > .buttons,
 .time-date > .control > .slider > .date-control > .days .day-cell.selected {
-  background-color: #2196F3;
+    background-color: #2196F3;
 }
 
 .time-date > .control > .slider > .date-control > .days .day-cell.today,
 .time-date button,
 .time-date .button {
-  color: #2196F3;
+    color: #2196F3;
 }
 
 .time-date > .control > .slider > .date-control > .days .day-cell.selected {
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 .time-date > .control > .slider > .date-control > .days .day-cell:hover,

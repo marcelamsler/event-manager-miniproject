@@ -55,12 +55,12 @@ angular.module('eventManagerApp.events').service('eventsService', ['$http', func
     this.addGuest = function (event, newGuest) {
 
         if (event.guests.length < event.maximalAmountOfGuests) {
-            return $http.post('http://localhost:8080/api/events/' + event.id + 'guests', newGuest)
+            return $http.post('http://localhost:8080/api/events/' + event.id + '/guests', newGuest)
                 .then(function (response) {
                     return response.data;
                 })
                 .catch(function (err) {
-                    $log.error(err);
+                    console.log(werr);
                     return {};
                 });
         } else {

@@ -41,7 +41,7 @@
 <h3 class="md-title">Guests</h3>
 <md-list>
     <md-list-item class="md-3-line" ng-repeat="guest in event.guests">
-        <div class="md-list-item-text" ng-class="{guestCanceled: guest.canceled}" layout="column">
+        <div class="md-list-item-text" ng-class="{'guestCanceled': guest.canceled}" layout="column">
             <h3>{{ guest.name }}</h3>
             <h4>{{ guest.contribution }}</h4>
             <p>{{ guest.comment }}</p>
