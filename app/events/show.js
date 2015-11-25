@@ -14,5 +14,8 @@ angular.module('eventManagerApp.events')
     }])
 
     .controller('EventShowCtrl', ['$scope', 'eventsService', '$routeParams', function ($scope, eventsService, $routeParams) {
-        $scope.event = eventsService.loadEvent($routeParams.id);
+        eventsService.loadEvent($routeParams.id).then( function( response ){
+          $scope.event = response;
+        });
+
     }]);
