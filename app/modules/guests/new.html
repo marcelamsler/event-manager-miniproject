@@ -10,8 +10,8 @@
 
         <md-input-container class="md-icon-float md-block" >
             <label>Contribution</label>
-            <md-icon md-svg-src="img/icons/ic_group_24px.svg" class="name"></md-icon>
-            <md-select ng-model="guest.contribution" style="margin-left: 40px;">
+            <md-icon md-svg-src="img/icons/ic_local_pizza_24px.svg" class="name"></md-icon>
+            <md-select ng-model="guest.contribution">
                 <md-option ng-repeat="contribution in event.contributions" value="{{contribution}}">
                     {{contribution}}
                 </md-option>
@@ -20,7 +20,7 @@
 
         <md-input-container class="md-icon-float md-block">
             <label>Comment</label>
-            <md-icon md-svg-src="img/icons/ic_face_24px.svg" class="name"></md-icon>
+            <md-icon md-svg-src="img/icons/ic_comment_48px.svg" class="name"></md-icon>
             <input ng-model="guest.comment" type="text">
         </md-input-container>
 

@@ -114,3 +114,11 @@ md-input-container.md-icon-float.md-input-focused, md-input-container.md-icon-fl
 .time-date > .control > .slider > .date-control > .days .day-cell:active {
     background-color: rgba(33, 150, 243, 0.71);
 }
+
+md-select {
+   margin-left: 40px!important;
+}
+
+md-select.ng-dirty {
+    margin-top:20px;
+}
