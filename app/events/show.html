@@ -45,7 +45,10 @@
             <h3>{{ guest.name }}</h3>
             <h4>{{ guest.contribution }}</h4>
             <p>{{ guest.comment }}</p>
-            <p><md-button ng-click="cancelGuest(guest)" ng-hide="guest.canceled == true"> cancel</md-button></p>
+            <p>
+                <md-button  href="#/events/{{event.id}}/guests/{{guest.id}}/edit">edit</md-button>
+                <md-button ng-click="cancelGuest(guest)" ng-hide="guest.canceled == true">cancel</md-button>
+            </p>
         </div>
     </md-list-item>
 </md-list>

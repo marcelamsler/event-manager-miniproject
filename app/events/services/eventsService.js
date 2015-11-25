@@ -52,6 +52,17 @@ angular.module('eventManagerApp.events').service('eventsService', ['$http', func
             });
     };
 
+    this.loadGuest = function (eventId, guestId) {
+        return $http.get('http://localhost:8080/api/events/' + eventId +'/guests/' + guestId)
+            .then(function (response) {
+                return response.data;
+            })
+            .catch(function (err) {
+                console.log(err);
+                return {};
+            });
+    };
+
     this.addGuest = function (event, newGuest) {
 
         if (event.guests.length < event.maximalAmountOfGuests) {

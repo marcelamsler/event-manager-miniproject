@@ -5,7 +5,7 @@ angular.module('eventManagerApp.guests')
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events/:event_id/guests/new', {
             templateUrl: 'modules/guests/new.html',
-            controller: 'GuestNewCtrl',
+            controller: 'GuestEditCtrl',
             data: {
                 isStartPage: false,
                 pageTitle: "Join Event"
@@ -13,7 +13,7 @@ angular.module('eventManagerApp.guests')
         });
     }])
 
-    .controller('GuestNewCtrl', ['$scope', 'eventsService', '$routeParams', '$location', function ($scope, eventsService, $routeParams, $location) {
+    .controller('GuestEditCtrl', ['$scope', 'eventsService', '$routeParams', '$location', function ($scope, eventsService, $routeParams, $location) {
 
         $scope.guest = {
             id: UUIDService.getRandomUuid(),
@@ -27,7 +27,7 @@ angular.module('eventManagerApp.guests')
             $scope.event = response;
         });
 
-        $scope.join = function() {
+        $scope.save = function() {
           eventsService.addGuest( $scope.event, $scope.guest).then(function() {
               eventsService.loadAllEvents().then(function() {
                   $location.path( '/events' );

@@ -1,0 +1,29 @@
+<form name="newEvent">
+
+    <md-input-container class="md-icon-float md-block">
+        <label>Your Name</label>
+        <md-icon md-svg-src="img/icons/ic_face_24px.svg" class="name"></md-icon>
+        <input ng-model="guest.name" type="text" ng-required="true">
+    </md-input-container>
+
+    <md-input-container class="md-icon-float md-block" >
+        <label>Contribution</label>
+        <md-icon md-svg-src="img/icons/ic_local_pizza_24px.svg" class="name"></md-icon>
+        <md-select ng-model="guest.contribution">
+            <md-option ng-repeat="contribution in event.contributions" value="{{contribution}}">
+                {{contribution}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-icon-float md-block">
+        <label>Comment</label>
+        <md-icon md-svg-src="img/icons/ic_comment_48px.svg" class="name"></md-icon>
+        <input ng-model="guest.comment" type="text">
+    </md-input-container>
+
+    <md-content layout-padding layout="row" layout-sm="column" layout-align="end">
+        <md-button class="" ng-click="cancel()">Cancel</md-button>
+        <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+    </md-content>
+</form>
