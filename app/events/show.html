@@ -1,11 +1,12 @@
-<h2 class="md-title">Overview</h2>
+<h2 class="md-title">{{event.name}}</h2>
+
+<div layout="column">
+    <span>{{event.location.name}}</span>
+    <span>{{event.location.street}}</span>
+    <span>{{event.location.plz}}</span>
+</div>
 
 <md-list>
-    <md-list-item>
-        <h3 class="md-title">Event Name</h3>
-        <img class="md-avatar" ng-src="img/icons/ic_local_bar_24px.svg">
-        <span>{{event.name}}</span>
-    </md-list-item>
     <md-list-item>
         <h3 class="md-title">Target Group</h3>
         <!--<img class="md-avatar" ng-src="img/icons/sign-in.svg">-->
@@ -18,16 +19,12 @@
     </md-list-item>
     <md-list-item>
         <h3 class="md-title">Maximum Amount Of Guests</h3>
-        <!--<img class="md-avatar" ng-src="img/icons/users.svg">-->
+
         <span>{{event.maximalAmountOfGuests}}</span>
     </md-list-item>
     <md-list-item>
-        <h3 class="md-title">Start Time</h3>
-        <span>{{event.times.begin | date:'dd.M. H:mm' }}</span>
-    </md-list-item>
-    <md-list-item>
-        <h3 class="md-title">End Time</h3>
-        <span>{{event.times.end | date:'dd.M. H:mm' }}</span>
+        <img class="md-avatar" ng-src="img/icons/ic_access_time_48px.svg">
+        <span>{{event.times.begin | date:'dd.M. H:mm'}} - {{event.times.end | date:'dd.M. H:mm' }}</span>
     </md-list-item>
 </md-list>
 
@@ -57,9 +54,3 @@
 </md-list>
 
 <h2 class="md-title">Event Address</h2>
-
-<div layout="column">
-    <span>{{event.location.name}}</span>
-    <span>{{event.location.street}}</span>
-    <span>{{event.location.plz}}</span>
-</div>
