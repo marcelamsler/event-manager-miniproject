@@ -6,7 +6,7 @@
         <input ng-model="guest.name" type="text" ng-required="true">
     </md-input-container>
 
-    <md-input-container class="md-icon-float md-block" >
+    <md-input-container class="md-icon-float md-block" ng-show="event.contributions.length > 0">
         <label>Contribution</label>
         <md-icon md-svg-src="img/icons/ic_local_pizza_24px.svg" class="name"></md-icon>
         <md-select ng-model="guest.contribution">
