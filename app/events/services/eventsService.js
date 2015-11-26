@@ -1,101 +1,95 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular.module('eventManagerApp.events').service('eventsService', ['$q', '$http', EventsService]);
+angular.module('eventManagerApp.events').service('eventsService', ['$http', function ($http) {
 
-    /**
-     * Events DataService
-     * Events embedded, hard-coded data model; acts asynchronously to simulate
-     * remote data service call(s).
-     *
-     * @returns {{loadAll: Function}}
-     * @constructor
-     */
-    function EventsService($q, $http) {
-        var fakeResponse = {
-            data: {
-                events: [
-                    {
-                        id: 1,
-                        name: "Studiengangabend",
-                        description: "auf ein Neues",
-                        targetGroup: "Stud I",
-                        contributionsDescription: ["Desserts gem. Doodle"],
-                        location: {
-                            name: "HSR",
-                            street: "Oberseestrasse",
-                            plz: "8640",
-                            city: "Rapperswil"
-                        },
-                        times: {
-                            begin: new Date('2015-11-20T18:00:00'),
-                            end: new Date('2015-11-20T18:00:00')
-                        },
-                        maximalAmountOfGuests: 150,
-                        guests: []
-                    },
-                    {
-                        id: 2,
-                        name: "Birthday Party",
-                        description: "man wird alt",
-                        targetGroup: "Freunde",
-                        contributionsDescription: ["gute Laune"],
-                        location: {
-                            name: "My Flat",
-                            street: "Kniestrasse",
-                            plz: "8640",
-                            city: "Rapperswil"
-                        },
-                        times: {
-                            begin: new Date('2015-11-20T18:00:00'),
-                            end: new Date('2015-11-20T18:00:00')
-                        },
-                        maximalAmountOfGuests: 12,
-                        guests: []
-                    },
-                    {
-                        id: 3,
-                        name: "Fette Fete",
-                        description: "riesige Fete",
-                        targetGroup: "alle",
-                        contributionsDescription: ["cash"],
-                        location: {
-                            name: "Club Fete",
-                            street: "rue du fete",
-                            plz: "2000",
-                            city: "Genf"
-                        },
-                        times: {
-                            begin: new Date('2015-11-20T18:00:00'),
-                            end: new Date('2015-11-20T18:00:00')
-                        },
-                        maximalAmountOfGuests: 350,
-                        guests: []
-                    }
-                ]
-            }
-        };
+    this.events = null;
 
-        // Promise-based API
-        return {
-            loadAllEvents: function () {
-                // Simulate async nature of real remote calls
-                return $q.when(fakeResponse);
-                // Access server API
-                // return $http({method: 'GET', url: 'http://localhost:8080/api/events'});
-            },
-            loadEvent: function (id) {
-                return fakeResponse.data.events.filter(function(event) {
-                    return event.id == id;
-                })[0];
-            },
-            saveEvent: function(event) {
-                fakeResponse.data.events.filter(function(event) {
-                    return event.id == id;
-                })[0] = event;
-            }
+    this.loadAllEvents = function () {
+        var _this = this;
+        return $http.get('http://localhost:8080/api/events')
+            .then(function (response) {
+                _this.events = response.data.events;
+                console.log('updated events');
+                return response.data;
+            })
+            .catch(function (err) {
+                console.log(err);
+                return {};
+            });
 
-        };
-    }
+    };
 
-})();
+    this.loadEvent = function (eventId) {
+        return $http.get('http://localhost:8080/api/events/' + eventId)
+            .then(function (response) {
+                return response.data;
+            })
+            .catch(function (err) {
+                console.log(err);
+                return {};
+            });
+    };
+
+    this.saveEvent = function (eventToSave) {
+        return $http.post('http://localhost:8080/api/events', eventToSave)
+            .then(function (response) {
+                return response.data;
+            })
+            .catch(function (err) {
+                $log.error(err);
+                return {};
+            });
+    };
+
+    this.updateEvent = function ( eventToUpdate ) {
+        return $http.post( 'http://localhost:8080/api/events/' + eventToUpdate.id, eventToUpdate )
+            .then(function (response) {
+                return response.data;
+            })
+            .catch(function (err) {
+                $log.error(err);
+                return {};
+            });
+    };
+
+    this.loadGuest = function (eventId, guestId) {
+        return $http.get('http://localhost:8080/api/events/' + eventId +'/guests/' + guestId)
+            .then(function (response) {
+                return response.data;
+            })
+            .catch(function (err) {
+                console.log(err);
+                return {};
+            });
+    };
+
+    this.addGuest = function (event, newGuest) {
+
+        if (event.guests.length < event.maximalAmountOfGuests) {
+            return $http.post('http://localhost:8080/api/events/' + event.id + '/guests', newGuest)
+                .then(function (response) {
+                    return response.data;
+                })
+                .catch(function (err) {
+                    console.log(werr);
+                    return {};
+                });
+        } else {
+            console.log("no more guests allowed");
+        }
+    };
+
+    this.updateGuest = function ( eventId, guestToUpdate ) {
+        return $http.post( 'http://localhost:8080/api/events/' + eventId + '/guests/' + guestToUpdate.id, guestToUpdate )
+            .then(function (response) {
+                return response.data;
+            })
+            .catch(function (err) {
+                console.log(err);
+                return {};
+            });
+    };
+
+
+}])
+;

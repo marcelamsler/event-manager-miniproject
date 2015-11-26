@@ -13,20 +13,20 @@ angular.module('eventManagerApp.events', ['ngRoute'])
         });
     }])
 
-    .controller('EventsCtrl', ['$scope', 'eventsService', '$q', '$rootScope', function ($scope, eventsService, $q, $rootScope) {
+    .controller('EventsCtrl', ['$scope', 'eventsService', function ($scope, eventsService) {
         $scope.events = [];
 
-        eventsService
-            .loadAllEvents()
-            .then(function (response) {
-                $scope.events = [].concat(response.data.events);
-            });
+        if (eventsService.events == null) {
+            eventsService.loadAllEvents()
+                .then(function (response) {
+                    $scope.events = response.events;
+                });
+        } else {
+            $scope.events = eventsService.events;
+        }
 
-        $scope.slotsLeft = function (event) {
-            //return event.maximalAmountOfGuests - event.guests.length;
+        $scope.canJoin = function (event) {
+            return event.maximalAmountOfGuests - event.guests.length > 0;
         };
 
-        $scope.createNewEvent = function() {
-
-        }
     }]);

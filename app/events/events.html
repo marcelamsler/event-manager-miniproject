@@ -12,12 +12,17 @@
           <p>{{ event.times.begin | date:'dd.M. H:mm' }} - {{ event.times.end | date:'dd.M. H:mm' }}</p>
         </div>
 
-        <md-button class="md-icon-button" aria-label="Open" href="#/events/{{event.id}}/edit">
+        <md-button ng-show="canJoin( event )" class="md-icon-button" aria-label="Join" href="#/events/{{event.id}}/guests/new">
+            Join
+        </md-button>
+
+
+        <md-button class="md-icon-button" aria-label="Edit" href="#/events/{{event.id}}/edit">
             Edit
         </md-button>
 
         <md-button class="md-icon-button" aria-label="Open" href="#/events/{{event.id}}/show">
-          Öffnen
+          Open
         </md-button>
     </md-list-item>
 

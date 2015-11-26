@@ -13,14 +13,25 @@ angular.module('eventManagerApp.events')
         });
     }])
 
-    .controller('EventNewCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    .controller('EventNewCtrl', ['$scope', 'eventsService', '$location', function ($scope, eventsService, $location) {
+        $scope.save = function () {
+            eventsService.saveEvent($scope.event).then(function () {
+                eventsService.loadAllEvents().then(function () {
+                    $location.path('/events');
+                });
+            });
+        };
+
+        $scope.cancel = function() {
+            $location.path('/events');
+        };
 
         $scope.event = {
-            id: 1,
+            id: UUIDService.getRandomUuid(),
             name: null,
             description: null,
             targetGroup: null,
-            contributionsDescription: [],
+            contributions: [],
             location: {
                 name: null,
                 street: null,
