@@ -122,3 +122,27 @@ md-select {
 md-select.ng-dirty {
     margin-top:20px;
 }
+
+/* LIST */
+@media (max-width: 599px) {
+  #eventList .md-list-item-buttons,
+  #eventList .eventListItemText {
+    width: 100%;
+  }
+
+  .hideInactiveBtns {
+    display: none;
+  }
+}
+
+#eventList .eventListItemText.md-list-item-text {
+  margin: 0;
+}
+#eventList md-list-item {
+  border-bottom: 1px solid #DDD;
+}
+
+md-list-item.md-3-line, md-list-item.md-3-line > .md-no-style {
+    min-height: 60px;
+    margin-bottom: 10px;
+}
