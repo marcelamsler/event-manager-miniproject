@@ -10,11 +10,10 @@ angular.module('eventManagerApp.guests')
                 isStartPage: false,
                 pageTitle: "Edit Participation"
             }
-        });
+      });
     }])
 
     .controller('GuestEditCtrl', ['$scope', 'eventsService', '$routeParams', '$location', function ($scope, eventsService, $routeParams, $location) {
-
         var eventId = $routeParams.event_id;
         var guestId = $routeParams.guest_id;
 
