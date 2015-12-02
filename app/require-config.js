@@ -8,12 +8,6 @@ if(window.__karma__) {
         return path.replace(/^\/base\/app\//, '').replace(/\.js$/, '');
     };
 
-    Object.keys(window.__karma__.files).forEach(function(file) {
-        if (TEST_REGEXP.test(file)) {
-            // Normalize paths to RequireJS module names.
-            allTestFiles.push(pathToModule(file));
-        }
-    });
 }
 
 require.config({
@@ -21,7 +15,26 @@ require.config({
         angular: 'bower_components/angular/angular',
         angularRoute: 'bower_components/angular-route/angular-route',
         angularMocks: 'bower_components/angular-mocks/angular-mocks',
-        text: 'bower_components/text/text'
+        text: 'bower_components/text/text',
+        angularAria: 'bower_components/angular-aria/angular-aria',
+        angularAnimate: 'bower_components/angular-animate/angular-animate',
+        angularMaterial: 'bower_components/angular-material/angular-material',
+        scDateTime: 'bower_components/sc-date-time/dist/sc-date-time',
+        events: 'events/events',
+        eventsService: 'events/services/eventsService',
+        uuidService: 'components/services/UUID-service',
+        newEvent: 'events/new',
+        editEvent: 'events/edit',
+        showEvent: 'events/show',
+        eventsFormDirective: 'events/directives/events-form-directive',
+        dateTimePicker: 'events/directives/date-time-picker',
+        initModule: 'modules/guests/init-module',
+        newGuests: 'modules/guests/new',
+        editGuests: 'modules/guests/edit',
+        guestFormDirective: 'modules/guests/directives/guest-form-directive',
+        app: 'app',
+        toolbarDirective: 'components/directives/toolbar-directive'
+
     },
     shim: {
         'angular' : {'exports' : 'angular'},
@@ -34,9 +47,6 @@ require.config({
     priority: [
         "angular"
     ],
-    deps: window.__karma__ ? allTestFiles : [],
-    callback: window.__karma__ ? window.__karma__.start : null,
-    baseUrl: window.__karma__ ? '/base/app' : '',
 });
 
 require([

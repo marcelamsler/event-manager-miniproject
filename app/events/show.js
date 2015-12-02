@@ -2,7 +2,8 @@
 
 define([
     'angular',
-    'angular-route'
+    'angularRoute',
+    'showEvent'
 ], function(angular) {
     angular.module('eventManagerApp.events')
 

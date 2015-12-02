@@ -1,7 +1,8 @@
     'use strict';
     define([
         'angular',
-        'angular-route'
+        'angular-route',
+        'newEvent'
     ], function(angular) {
 
 

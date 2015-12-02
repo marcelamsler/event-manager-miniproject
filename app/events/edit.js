@@ -1,7 +1,8 @@
 'use strict';
 define([
     'angular',
-    'angular-route'
+    'angular-route',
+    'editEvent'
 ], function(angular) {
 
     angular.module('eventManagerApp.events')
