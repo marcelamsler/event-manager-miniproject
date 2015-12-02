@@ -1,6 +1,10 @@
 'use strict';
+define([
+    'angular',
+    'angular-route'
+], function(angular) {
 
-angular.module('eventManagerApp.events')
+    angular.module('eventManagerApp.events')
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events/:id/edit', {
@@ -31,3 +35,6 @@ angular.module('eventManagerApp.events')
           $location.path( '/events' );
         };
     }]);
+
+});
+

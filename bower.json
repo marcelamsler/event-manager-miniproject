@@ -14,6 +14,7 @@
     "font-awesome": "~4.4.0",
     "html5-boilerplate": "~5.2.0",
     "requirejs": "~2.1.20",
+    "requirejs-text": "2.0.x",
     "sc-date-time": "~1.1.3"
   }
 }

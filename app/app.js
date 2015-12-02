@@ -1,6 +1,7 @@
 'use strict';
 // Declare app level module which depends on views, and components
 angular.module('eventManagerApp', [
+        'angular-route',
         'ngRoute',
         'eventManagerApp.events',
         'eventManagerApp.guests',

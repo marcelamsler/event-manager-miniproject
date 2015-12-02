@@ -1,6 +1,11 @@
-'use strict';
+    'use strict';
+    define([
+        'angular',
+        'angular-route'
+    ], function(angular) {
 
-angular.module('eventManagerApp.events')
+
+    angular.module('eventManagerApp.events')
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events/new', {
@@ -47,3 +52,6 @@ angular.module('eventManagerApp.events')
         };
 
 }]);
+
+});
+
