@@ -4,7 +4,7 @@ angular.module('eventManagerApp.guests')
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events/:event_id/guests/:guest_id/edit', {
-            templateUrl: 'modules/guests/edit.html',
+            templateUrl: 'modules/guests/templates/edit.html',
             controller: 'GuestEditCtrl',
             data: {
                 isStartPage: false,

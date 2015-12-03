@@ -31,6 +31,7 @@ angular.module('eventManagerApp.events').service('eventsService', ['$http', func
     };
 
     this.saveEvent = function (eventToSave) {
+      console.log( eventToSave );
         return $http.post('http://localhost:8080/api/events', eventToSave)
             .then(function (response) {
                 return response.data;
@@ -90,6 +91,4 @@ angular.module('eventManagerApp.events').service('eventsService', ['$http', func
             });
     };
 
-
-}])
-;
+}]);

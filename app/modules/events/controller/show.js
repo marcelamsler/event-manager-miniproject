@@ -4,7 +4,7 @@ angular.module('eventManagerApp.events')
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events/:id/show', {
-            templateUrl: 'events/show.html',
+            templateUrl: 'modules/events/templates/show.html',
             controller: 'EventShowCtrl',
             data: {
                 isStartPage: false,
@@ -29,4 +29,3 @@ angular.module('eventManagerApp.events')
             });
         }
     }]);
-

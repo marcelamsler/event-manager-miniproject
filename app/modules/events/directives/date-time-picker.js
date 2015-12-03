@@ -13,7 +13,7 @@ angular.module('eventManagerApp.events').directive('dateTimePickerInput', [ '$md
 				ngModelCtrl.$setTouched();
 				_openModal = $mdDialog.show({
 					parent: angular.element( document.querySelector('body')),
-					templateUrl: 'events/templates/date-time-picker.html',
+					templateUrl: 'modules/events/templates/date-time-picker.html',
 					controller: function ($scope, $mdDialog) {
 						// See https://github.com/SimeonC/sc-date-time#options for details
 						var passthroughAttrs = ['displayMode', 'defaultDate', 'defaultMode', 'mindate', 'maxdate']

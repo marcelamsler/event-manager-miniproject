@@ -4,7 +4,7 @@ angular.module('eventManagerApp.events')
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/events/new', {
-            templateUrl: 'events/new.html',
+            templateUrl: 'modules/events/templates/new.html',
             controller: 'EventNewCtrl',
             data: {
                 isStartPage: false,
