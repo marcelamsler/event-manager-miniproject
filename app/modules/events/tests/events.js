@@ -1,16 +1,22 @@
 'use strict';
 
-describe('eventManagerApp.events module', function() {
+describe('eventManagerApp Events', function() {
 
-  beforeEach(module('eventManagerApp.events'));
+	beforeEach(module('eventManagerApp.events'));
+    var scope, createController;
 
-  describe('events controller', function(){
+    beforeEach(inject(function ($rootScope, $controller) {
+        scope = $rootScope.$new();
 
-    it('should ....', inject(function($controller) {
-      //spec body
-      var eventsCtrl = $controller('EventsCtrl');
-      expect(eventsCtrl).toBeDefined();
+        createController = function() {
+            return $controller('EventsCtrl', {
+                '$scope': scope
+            });
+        };
     }));
 
-  });
+    it('should have no events in the beginning', function() {
+        var controller = createController();
+        expect(scope.events.length).toBe(0);
+    });
 });
