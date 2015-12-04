@@ -22,9 +22,5 @@ define("app", ["angular"], function(angular){
     return app;
 });
 
-// TODO
-require(["app", "controllers/TestController1"]);
-require(["app", "controllers/TestController2"]);
-require(["app", "controllers/TestController3"]);
-require(["app", "controllers/TestController4"]);
-require(["app", "controllers/TestController5"]);
+require(["app", "modules/events/init"]);
+require(["app", "modules/guests/init"]);
