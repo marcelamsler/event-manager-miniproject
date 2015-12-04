@@ -2,7 +2,7 @@
 'use strict';
 
 require.config({
-    baseUrl: '../',
+    baseUrl: './',
     paths: {
         'modernizr': 'bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js',
         'angular': 'bower_components/angular/angular.min',
