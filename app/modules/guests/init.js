@@ -1,1 +1,4 @@
-angular.module('eventManagerApp.guests',[]);
+define(['angular'], function (angular) {
+    'use strict';
+    return angular.module('eventManagerApp.guests',[]);
+});

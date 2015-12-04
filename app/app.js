@@ -1,6 +1,6 @@
-'use strict';
-// Declare app level module which depends on views, and components
-angular.module('eventManagerApp', [
+define("app", ["angular"], function(angular){
+
+    var app = angular.module('eventManagerApp', [
         'ngRoute',
         'eventManagerApp.events',
         'eventManagerApp.guests',
@@ -18,3 +18,13 @@ angular.module('eventManagerApp', [
         displayTwentyfour: true,
         defaultTheme: 'material'
     });
+
+    return app;
+});
+
+// TODO
+require(["app", "controllers/TestController1"]);
+require(["app", "controllers/TestController2"]);
+require(["app", "controllers/TestController3"]);
+require(["app", "controllers/TestController4"]);
+require(["app", "controllers/TestController5"]);
