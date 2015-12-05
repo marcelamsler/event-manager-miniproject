@@ -9,6 +9,7 @@ define("app", [
         "modules/events/controller/show",
         "modules/events/controller/new",
         "modules/events/services/eventsService",
+        "modules/events/directives/events-form-directive",
         "components/services/UUID-service",
         "components/directives/toolbar-directive"
     ]
@@ -22,6 +23,7 @@ define("app", [
                 EventShowCtrl,
                 EventNewCtrl,
                 eventsService,
+                eventsFormDirective,
                 UUIDService,
                 toolbar) {
 
@@ -82,6 +84,8 @@ define("app", [
 
          toolbar.$inject = ['$rootScope','$window'];
          eventModule.directive('toolbar', toolbar);
+
+         eventModule.directive('eventsFormDirective', eventsFormDirective);
 
         return app;
     });
