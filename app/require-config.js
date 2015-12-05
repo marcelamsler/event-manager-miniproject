@@ -10,7 +10,7 @@ require.config({
         'angularMaterial': 'bower_components/angular-material/angular-material',
         'scDateTime': 'bower_components/sc-date-time/dist/sc-date-time'
     },
-    // angular/modernizt do not support async loading out of the box -> use the shim loader
+    // angular/modernizr do not support async loading out of the box -> use the shim loader
     shim: {
         'angular'   : { exports: 'angular' },
         'app'       : { deps: ['angular'] },
@@ -27,4 +27,3 @@ define(['angular', 'app'], function (angular, app) {
         angular.bootstrap(document, [app.name]);
     });
 });
-

@@ -7,7 +7,9 @@ define("app", [
         "angularAria",
         "modules/events/controller/events",
         "modules/events/controller/show",
-        "modules/events/services/eventsService"
+        "modules/events/controller/new",
+        "modules/events/services/eventsService",
+        "components/services/UUID-service"
     ]
     , function (angular,
                 angularRoute,
@@ -17,7 +19,9 @@ define("app", [
                 angularAria,
                 EventsCtrl,
                 EventShowCtrl,
-                eventsService) {
+                EventNewCtrl,
+                eventsService,
+                UUIDService) {
 
         var app = angular.module('eventManagerApp', [
                 'ngRoute',
@@ -46,6 +50,13 @@ define("app", [
                         isStartPage: true,
                         pageTitle: "Event Manager Overview"
                     }
+                }).when('/events/new', {
+                    templateUrl: 'modules/events/templates/new.html',
+                    controller: 'EventNewCtrl',
+                    data: {
+                        isStartPage: false,
+                        pageTitle: "New Event"
+                    }
                 });
             }])
             .value('scDateTimeConfig', {
@@ -63,6 +74,9 @@ define("app", [
 
         EventShowCtrl.$inject = ['$scope', 'eventsService', '$routeParams'];
         eventModule.controller('EventShowCtrl', EventShowCtrl);
+
+        EventNewCtrl.$inject = ['$scope', 'eventsService', '$location'];
+        eventModule.controller('EventNewCtrl', EventNewCtrl);
 
         return app;
     });
