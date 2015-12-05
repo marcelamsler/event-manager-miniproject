@@ -1,19 +1,7 @@
 'use strict';
 
-angular.module('eventManagerApp.events')
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/events', {
-            templateUrl: 'modules/events/templates/events.html',
-            controller: 'EventsCtrl',
-            data: {
-                isStartPage: true,
-                pageTitle: "Event Manager Overview"
-            }
-        });
-    }])
-
-    .controller('EventsCtrl', ['$scope', 'eventsService', function ($scope, eventsService) {
+define([], function () {
+    var eventsController = function ($scope, eventsService) {
         $scope.events = [];
 
         if (eventsService.events == null) {
@@ -33,10 +21,12 @@ angular.module('eventManagerApp.events')
          * Set a certain event active (or inactive again) and set all other
          * events inactive.
          */
-        $scope.setActive = function( event ) {
-          angular.forEach($scope.events, function(ev){
-            ev.activeInList = ev.id === event.id && !event.activeInList;
-          });
+        $scope.setActive = function (event) {
+            angular.forEach($scope.events, function (ev) {
+                ev.activeInList = ev.id === event.id && !event.activeInList;
+            });
         }
 
-    }]);
+    };
+    return eventsController;
+});
