@@ -9,7 +9,8 @@ define("app", [
         "modules/events/controller/show",
         "modules/events/controller/new",
         "modules/events/services/eventsService",
-        "components/services/UUID-service"
+        "components/services/UUID-service",
+        "components/directives/toolbar-directive"
     ]
     , function (angular,
                 angularRoute,
@@ -21,7 +22,8 @@ define("app", [
                 EventShowCtrl,
                 EventNewCtrl,
                 eventsService,
-                UUIDService) {
+                UUIDService,
+                toolbar) {
 
         var app = angular.module('eventManagerApp', [
                 'ngRoute',
@@ -77,6 +79,9 @@ define("app", [
 
         EventNewCtrl.$inject = ['$scope', 'eventsService', '$location'];
         eventModule.controller('EventNewCtrl', EventNewCtrl);
+
+         toolbar.$inject = ['$rootScope','$window'];
+         eventModule.directive('toolbar', toolbar);
 
         return app;
     });
