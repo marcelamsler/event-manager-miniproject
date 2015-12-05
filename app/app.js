@@ -11,6 +11,7 @@ define("app", [
         "modules/events/controller/edit",
         "modules/events/services/eventsService",
         "modules/events/directives/events-form-directive",
+        "modules/events/directives/date-time-picker",
         "components/services/UUID-service",
         "components/directives/toolbar-directive"
     ]
@@ -26,6 +27,7 @@ define("app", [
                 EventEditCtrl,
                 eventsService,
                 eventsFormDirective,
+                dateTimePickerInput,
                 UUIDService,
                 toolbar) {
 
@@ -97,6 +99,9 @@ define("app", [
         toolbar.$inject = ['$rootScope','$window'];
         eventModule.directive('toolbar', toolbar);
         eventModule.directive('eventsFormDirective', eventsFormDirective);
+
+        dateTimePickerInput.$inject = [ '$mdDialog', '$filter'];
+        eventModule.directive('dateTimePickerInput', dateTimePickerInput);
 
         return app;
     });
