@@ -1,51 +1,36 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Event Manager</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-        <link rel="stylesheet" href="bower_components/sc-date-time/dist/sc-date-time.css">
-        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="app.css">
-        <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event Manager</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/sc-date-time/dist/sc-date-time.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app.css">
 
-        <style type="text/css">
-            /* Hide when Angular is not yet loaded and initialized */
-            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-                display: none !important;
-            }
-        </style>
-    </head>
-    <body ng-cloak ng-app="eventManagerApp">
-        <toolbar></toolbar>
+    <script data-main="require-config" src="bower_components/requirejs/require.js"></script>
 
-        <script src="bower_components/requirejs/require.js"></script>
+    <style type="text/css">
+      /* Hide when Angular is not yet loaded and initialized */
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+      }
+    </style>
+  </head>
+  <body ng-cloak>
+    <toolbar></toolbar>
+    <md-content flex layout-padding id="content">
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+                href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-aria/angular-aria.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.js"></script>
-        <script src="bower_components/angular-material/angular-material.js"></script>
-        <script src="bower_components/sc-date-time/dist/sc-date-time.js"></script>
+        <ng-view></ng-view>
+    </md-content>
 
-        <script src="events/events.js"></script>
-        <script src="events/services/eventsService.js"></script>
-        <script src="components/services/UUID-service.js"></script>
-        <script src="events/new.js"></script>
-        <script src="events/edit.js"></script>
-        <script src="events/show.js"></script>
-        <script src="events/directives/events-form-directive.js"></script>
-        <script src="events/directives/date-time-picker.js"></script>
-        <script src="modules/guests/init-module.js"></script>
-        <script src="modules/guests/new.js"></script>
-        <script src="modules/guests/edit.js"></script>
-        <script src="modules/guests/directives/guest-form-directive.js"></script>
-        <script src="app.js"></script>
-        <script src="components/directives/toolbar-directive.js"></script>
-
-    </body>
+  </body>
 </html>

@@ -1,19 +1,7 @@
 'use strict';
 
-angular.module('eventManagerApp.guests')
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/events/:event_id/guests/new', {
-            templateUrl: 'modules/guests/new.html',
-            controller: 'NewGuestCtrl',
-            data: {
-                isStartPage: false,
-                pageTitle: "Join Event"
-            }
-        });
-    }])
-
-    .controller('NewGuestCtrl', ['$scope', 'eventsService', '$routeParams', '$location', function ($scope, eventsService, $routeParams, $location) {
+define([], function () {
+    var NewGuestCtrl = function ($scope, eventsService, $routeParams, $location) {
         $scope.guest = {
             id: UUIDService.getRandomUuid(),
             name : "",
@@ -37,5 +25,6 @@ angular.module('eventManagerApp.guests')
         $scope.cancel = function() {
           $location.path( '/events' );
         };
-
-    }]);
+    };
+    return NewGuestCtrl;
+});

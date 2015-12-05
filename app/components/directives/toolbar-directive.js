@@ -1,5 +1,5 @@
-angular.module('eventManagerApp')
-.directive('toolbar', ['$rootScope','$window', function ($rootScope, $window) {
+define([], function () {
+  var toolbar = function ($rootScope, $window) {
     return {
         templateUrl: 'components/templates/toolbar.html',
         link: function (scope, element) {
@@ -13,4 +13,6 @@ angular.module('eventManagerApp')
             }
         }
     };
-}]);
+  };
+  return toolbar;
+});
