@@ -33,7 +33,7 @@ define([], function () {
             maximalAmountOfGuests: 0,
             guests: []
         };
-      };
+    };
 
-      return EventNewCtrl;
+    return EventNewCtrl;
 });

@@ -13,7 +13,10 @@ define("app", [
         "modules/events/directives/events-form-directive",
         "modules/events/directives/date-time-picker",
         "components/services/UUID-service",
-        "components/directives/toolbar-directive"
+        "components/directives/toolbar-directive",
+        "modules/guests/controller/edit",
+        "modules/guests/controller/new",
+        "modules/guests/directives/guest-form-directive"
     ]
     , function (angular,
                 angularRoute,
@@ -29,7 +32,11 @@ define("app", [
                 eventsFormDirective,
                 dateTimePickerInput,
                 UUIDService,
-                toolbar) {
+                toolbar,
+                GuestEditCtrl,
+                NewGuestCtrl,
+                guestForm
+              ) {
 
         var app = angular.module('eventManagerApp', [
                 'ngRoute',
@@ -72,6 +79,20 @@ define("app", [
                         isStartPage: false,
                         pageTitle: "Edit Event"
                     }
+                }).when('/events/:event_id/guests/:guest_id/edit', {
+                    templateUrl: 'modules/guests/templates/edit.html',
+                    controller: 'GuestEditCtrl',
+                    data: {
+                        isStartPage: false,
+                        pageTitle: "Edit Participation"
+                    }
+                }).when('/events/:event_id/guests/new', {
+                    templateUrl: 'modules/guests/templates/new.html',
+                    controller: 'NewGuestCtrl',
+                    data: {
+                        isStartPage: false,
+                        pageTitle: "Join Event"
+                    }
                 });
             }])
             .value('scDateTimeConfig', {
@@ -102,6 +123,16 @@ define("app", [
 
         dateTimePickerInput.$inject = [ '$mdDialog', '$filter'];
         eventModule.directive('dateTimePickerInput', dateTimePickerInput);
+
+        var guestModule = angular.module('eventManagerApp.guests', []);
+
+        NewGuestCtrl.$inject = ['$scope', 'eventsService', '$routeParams', '$location'];
+        guestModule.controller('NewGuestCtrl', NewGuestCtrl);
+
+        GuestEditCtrl.$inject = ['$scope', 'eventsService', '$routeParams', '$location'];
+        guestModule.controller('GuestEditCtrl', GuestEditCtrl);
+
+        guestModule.directive('guestForm', guestForm);
 
         return app;
     });
