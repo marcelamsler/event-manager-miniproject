@@ -1,31 +1,22 @@
 'use strict';
 
-angular.module('eventManagerApp.events')
+define([], function () {
+        var EventsShowCtrl = function ($scope, eventsService, $routeParams) {
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/events/:id/show', {
-            templateUrl: 'modules/events/templates/show.html',
-            controller: 'EventShowCtrl',
-            data: {
-                isStartPage: false,
-                pageTitle: "Show Event"
+            refreshEvent();
+
+            function refreshEvent() {
+                eventsService.loadEvent($routeParams.id).then(function (response) {
+                    $scope.event = response;
+                });
             }
-        });
-    }])
-    .controller('EventShowCtrl', ['$scope', 'eventsService', '$routeParams', function ($scope, eventsService, $routeParams) {
 
-        refreshEvent();
-
-        function refreshEvent() {
-            eventsService.loadEvent($routeParams.id).then( function( response ){
-                $scope.event = response;
-            });
-        }
-
-        $scope.cancelGuest = function(guest) {
-            guest.canceled = true;
-            eventsService.updateGuest($scope.event.id, guest).then(function () {
-                refreshEvent();
-            });
-        }
-    }]);
+            $scope.cancelGuest = function (guest) {
+                guest.canceled = true;
+                eventsService.updateGuest($scope.event.id, guest).then(function () {
+                    refreshEvent();
+                });
+            }
+        };
+    return EventsShowCtrl;
+});
