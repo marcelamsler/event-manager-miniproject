@@ -8,6 +8,7 @@ define("app", [
         "modules/events/controller/events",
         "modules/events/controller/show",
         "modules/events/controller/new",
+        "modules/events/controller/edit",
         "modules/events/services/eventsService",
         "modules/events/directives/events-form-directive",
         "components/services/UUID-service",
@@ -22,6 +23,7 @@ define("app", [
                 EventsCtrl,
                 EventShowCtrl,
                 EventNewCtrl,
+                EventEditCtrl,
                 eventsService,
                 eventsFormDirective,
                 UUIDService,
@@ -61,6 +63,13 @@ define("app", [
                         isStartPage: false,
                         pageTitle: "New Event"
                     }
+                }).when('/events/:id/edit', {
+                    templateUrl: 'modules/events/templates/edit.html',
+                    controller: 'EventEditCtrl',
+                    data: {
+                        isStartPage: false,
+                        pageTitle: "Edit Event"
+                    }
                 });
             }])
             .value('scDateTimeConfig', {
@@ -82,10 +91,12 @@ define("app", [
         EventNewCtrl.$inject = ['$scope', 'eventsService', '$location'];
         eventModule.controller('EventNewCtrl', EventNewCtrl);
 
-         toolbar.$inject = ['$rootScope','$window'];
-         eventModule.directive('toolbar', toolbar);
+        EventEditCtrl.$inject = ['$scope', 'eventsService', '$routeParams', '$location'];
+        eventModule.controller('EventEditCtrl', EventEditCtrl);
 
-         eventModule.directive('eventsFormDirective', eventsFormDirective);
+        toolbar.$inject = ['$rootScope','$window'];
+        eventModule.directive('toolbar', toolbar);
+        eventModule.directive('eventsFormDirective', eventsFormDirective);
 
         return app;
     });
