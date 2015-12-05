@@ -41,6 +41,7 @@ define("app", [
         var app = angular.module('eventManagerApp', [
                 'ngRoute',
                 'eventManagerApp.events',
+                'eventManagerApp.guests',
                 'ngMaterial',
                 'scDateTime'
             ])
