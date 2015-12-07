@@ -11,12 +11,13 @@ define([], function () {
             });
         }
 
-        $scope.cancelGuest = function (guest) {
-            guest.canceled = true;
+        $scope.toggleCancelGuest = function (guest) {
+            guest.canceled = !guest.canceled;
             eventsService.updateGuest($scope.event.id, guest).then(function () {
                 refreshEvent();
             });
         }
+
     };
     return EventsShowCtrl;
 });

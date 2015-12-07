@@ -1,5 +1,4 @@
 <h1 class="md-title">{{event.name}}</h1>
-<!--<img class="md-avatar" ng-src="img/icons/ic_access_time_48px.svg"></br>-->
 
 
 <span><img class="md-avatar" ng-src="img/icons/ic_flight_takeoff_black_24px.svg">{{event.times.begin | date:'dd.M. H:mm'}} <img class="md-avatar" ng-src="img/icons/ic_flight_land_black_24px.svg">{{event.times.end | date:'dd.M. H:mm' }}</span></br>
@@ -10,18 +9,16 @@
 <span>{{event.location.name}}, {{event.location.street}}, {{event.location.plz}}</span></br>
 
 <img class="md-avatar" ng-src="img/icons/ic_group_24px.svg">
-<span >F&uuml;r bis zu {{event.maximalAmountOfGuests}} {{event.targetGroup}}</span></br></br>
+<span >For up to {{event.maximalAmountOfGuests}} {{event.targetGroup}}</span></br></br>
 
-<!--<img class="md-avatar" ng-src="img/icons/ic_restaurant_menu_black_36px.svg">-->
-<!--<img class="md-avatar" ng-src="img/icons/ic_local_bar_black_36px.svg">-->
 <img class="md-avatar" ng-src="img/icons/ic_restaurant_menu_black_24px.svg">
-<span class="md-title">Mitbringsel</span>
+<span class="md-title">Contributions</span>
 <ul><span ng-repeat="contribution in event.contributions">
     <li> {{contribution}}</li>
 </span></ul>
 
 <img class="md-avatar" ng-src="img/icons/ic_group_add_black_24px.svg">
-<span class="md-title">G&auml;ste</span>
+<span class="md-title">Guests</span>
 <md-list>
     <md-list-item class="md-3-line" ng-repeat="guest in event.guests">
         <div class="md-list-item-text" ng-class="{'guestCanceled': guest.canceled}" layout="column">
@@ -32,7 +29,8 @@
             <div>
                 <md-button class="pull-left" href="#/events/{{event.id}}/guests/{{guest.id}}/edit" ng-hide="guest.canceled == true">edit
                 </md-button>
-                <md-button ng-click="cancelGuest(guest)" ng-hide="guest.canceled == true">cancel</md-button>
+                <md-button ng-click="toggleCancelGuest(guest)" ng-hide="guest.canceled == true">cancel</md-button>
+                <md-button ng-click="toggleCancelGuest(guest)" ng-hide="guest.canceled == false">undo cancel</md-button>
             </div>
         </div>
     </md-list-item>
