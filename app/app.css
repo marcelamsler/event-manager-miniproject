@@ -138,6 +138,13 @@ md-select.ng-dirty {
 #eventList .eventListItemText.md-list-item-text {
   margin: 0;
 }
+.eventListItemText:active,
+.eventListItemText:focus {
+  outline: none;
+  border: none;
+  -moz-outline-style: none;
+}
+
 #eventList md-list-item {
   border-bottom: 1px solid #DDD;
 }
