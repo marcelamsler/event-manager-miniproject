@@ -21,7 +21,7 @@ define([], function(){
         };
 
         $scope.cancel = function () {
-            $location.path('/events');
+            $location.path('/events/' + eventId + '/show');
         };
     };
     return GuestEditCtrl;
