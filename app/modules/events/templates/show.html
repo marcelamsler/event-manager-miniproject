@@ -40,10 +40,10 @@
             </div>
 
             <div>
-                <md-button class="pull-left" href="#/events/{{event.id}}/guests/{{guest.id}}/edit" ng-hide="guest.canceled == true">edit
-                </md-button>
-                <md-button ng-click="toggleCancelGuest(guest)" ng-hide="guest.canceled == true">cancel</md-button>
-                <md-button ng-click="toggleCancelGuest(guest)" ng-hide="guest.canceled == false">undo cancel</md-button>
+                <md-button class="pull-left"
+                           href="#/events/{{event.id}}/guests/{{guest.id}}/edit"
+                           ng-hide="guest.canceled">Edit</md-button>
+                <md-button ng-click="toggleCancelGuest(guest)">{{ guest.canceled ? "Undo Cancel" : "Cancel" }}</md-button>
             </div>
         </div>
     </md-list-item>

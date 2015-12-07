@@ -14,7 +14,14 @@ define([], function () {
         }
 
         $scope.canJoin = function (event) {
-            return event.maximalAmountOfGuests - event.guests.length > 0;
+          // consider cancelled guests as not counting towards the limit
+          var activeGuests = 0;
+          angular.forEach( event.guests, function( guest ) {
+            if ( !guest.canceled ) {
+              activeGuests++;
+            }
+          });
+          return event.maximalAmountOfGuests - activeGuests > 0;
         };
 
         /**
