@@ -1,18 +1,29 @@
 <h1 class="md-title">{{event.name}}</h1>
 
+<div class="showEntry">
+    <img class="md-avatar" ng-src="img/icons/ic_flight_takeoff_black_24px.svg">{{event.times.begin | date:'dd.M. H:mm'}}
+    <img class="md-avatar" ng-src="img/icons/ic_flight_land_black_24px.svg">{{event.times.end | date:'dd.M. H:mm' }}
+</div>
 
-<span><img class="md-avatar" ng-src="img/icons/ic_flight_takeoff_black_24px.svg">{{event.times.begin | date:'dd.M. H:mm'}} <img class="md-avatar" ng-src="img/icons/ic_flight_land_black_24px.svg">{{event.times.end | date:'dd.M. H:mm' }}</span></br>
-<img class="md-avatar" ng-src="img/icons/ic_description_black_24px.svg">
-<span>{{event.description}}</span></br>
+<div class="showEntry">
+    <img class="md-avatar" ng-src="img/icons/ic_description_black_24px.svg">
+    {{event.description}}
+</div>
 
-<img class="md-avatar" ng-src="img/icons/ic_place_24px.svg">
-<span>{{event.location.name}}, {{event.location.street}}, {{event.location.plz}}</span></br>
+<div class="showEntry">
+    <img class="md-avatar" ng-src="img/icons/ic_place_24px.svg">
+    {{event.location.name}}, {{event.location.street}}, {{event.location.plz}}
+</div>
 
-<img class="md-avatar" ng-src="img/icons/ic_group_24px.svg">
-<span >For up to {{event.maximalAmountOfGuests}} {{event.targetGroup}}</span></br></br>
+<div class="showEntry">
+    <img class="md-avatar" ng-src="img/icons/ic_group_24px.svg">
+    For up to {{event.maximalAmountOfGuests}} {{event.targetGroup}}
+</div>
 
-<img class="md-avatar" ng-src="img/icons/ic_restaurant_menu_black_24px.svg">
-<span class="md-title">Contributions</span>
+<div class="showEntry">
+    <img class="md-avatar" ng-src="img/icons/ic_restaurant_menu_black_24px.svg">
+    <span class="md-title">Contributions</span>
+</div>
 <ul><span ng-repeat="contribution in event.contributions">
     <li> {{contribution}}</li>
 </span></ul>
@@ -20,11 +31,13 @@
 <img class="md-avatar" ng-src="img/icons/ic_group_add_black_24px.svg">
 <span class="md-title">Guests</span>
 <md-list>
-    <md-list-item class="md-3-line" ng-repeat="guest in event.guests">
-        <div class="md-list-item-text" ng-class="{'guestCanceled': guest.canceled}" layout="column">
-            <h3>{{ guest.name }}</h3>
-            <h4>{{ guest.contribution }}</h4>
-            <p>{{ guest.comment }}</p>
+    <md-list-item class="md-3-line eventGuest" ng-repeat="guest in event.guests">
+        <div class="md-list-item-text" ng-class="{'guestCanceled': guest.canceled}" layout="row" layout-sm="column">
+            <div layout="column">
+                <h3>{{ guest.name }}</h3>
+                <h4>{{ guest.contribution }}</h4>
+                <p>{{ guest.comment }}</p>
+            </div>
 
             <div>
                 <md-button class="pull-left" href="#/events/{{event.id}}/guests/{{guest.id}}/edit" ng-hide="guest.canceled == true">edit
@@ -35,4 +48,3 @@
         </div>
     </md-list-item>
 </md-list>
-

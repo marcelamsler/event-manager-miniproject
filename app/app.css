@@ -146,3 +146,14 @@ md-list-item.md-3-line, md-list-item.md-3-line > .md-no-style {
     min-height: 60px;
     margin-bottom: 10px;
 }
+
+/* SHOW */
+.showEntry {
+  margin: 10px 0;
+}
+
+/* GUEST LIST */
+.eventGuest {
+  border-top: 1px solid #DDD;
+  padding-top: 5px;
+}
