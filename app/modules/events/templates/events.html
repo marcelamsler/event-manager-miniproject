@@ -15,7 +15,7 @@
 
         <div class="md-list-item-buttons" layout="row" layout-align="end center" ng-class="{hideInactiveBtns: !event.activeInList}">
 
-          <md-button ng-show="canJoin( event )" class="md-icon-button" aria-label="Join" href="#/events/{{event.id}}/guests/new">
+          <md-button ng-show="canJoinToThis( event )" class="md-icon-button" aria-label="Join" href="#/events/{{event.id}}/guests/new">
               Join
           </md-button>
 

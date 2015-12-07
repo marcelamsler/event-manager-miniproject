@@ -13,17 +13,10 @@ define([], function () {
             $scope.events = eventsService.events;
         }
 
-        $scope.canJoin = function (event) {
-          // consider cancelled guests as not counting towards the limit
-          var activeGuests = 0;
-          angular.forEach( event.guests, function( guest ) {
-            if ( !guest.canceled ) {
-              activeGuests++;
-            }
-          });
-          return event.maximalAmountOfGuests - activeGuests > 0;
-        };
-
+        $scope.canJoinToThis = function (event){
+            var xx = eventsService.canJoin(event);
+            return xx;
+        }
         /**
          * Set a certain event active (or inactive again) and set all other
          * events inactive.

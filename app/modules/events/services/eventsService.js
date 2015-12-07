@@ -66,8 +66,13 @@ define([], function () {
         };
 
         this.addGuest = function (event, newGuest) {
-
-            if (event.guests.length < event.maximalAmountOfGuests) {
+            var activeGuests = 0;
+            angular.forEach( event.guests, function( guest ) {
+                if ( !guest.canceled ) {
+                    activeGuests++;
+                }
+            });
+            if (activeGuests < event.maximalAmountOfGuests) {
                 return $http.post('http://localhost:8080/api/events/' + event.id + '/guests', newGuest)
                     .then(function (response) {
                         return response.data;
@@ -90,6 +95,16 @@ define([], function () {
                     console.log(err);
                     return {};
                 });
+        };
+        this.canJoin = function (event) {
+            // consider cancelled guests as not counting towards the limit
+            var activeGuests = 0;
+            angular.forEach( event.guests, function( guest ) {
+                if ( !guest.canceled ) {
+                    activeGuests++;
+                }
+            });
+            return event.maximalAmountOfGuests - activeGuests > 0;
         };
 
     };
