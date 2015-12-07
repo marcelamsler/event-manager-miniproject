@@ -1,19 +1,7 @@
 'use strict';
 
-angular.module('eventManagerApp.events')
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/events/new', {
-            templateUrl: 'events/new.html',
-            controller: 'EventNewCtrl',
-            data: {
-                isStartPage: false,
-                pageTitle: "New Event"
-            }
-        });
-    }])
-
-    .controller('EventNewCtrl', ['$scope', 'eventsService', '$location', function ($scope, eventsService, $location) {
+define([], function () {
+    var EventNewCtrl = function($scope, eventsService, $location) {
         $scope.save = function () {
             eventsService.saveEvent($scope.event).then(function () {
                 eventsService.loadAllEvents().then(function () {
@@ -45,5 +33,7 @@ angular.module('eventManagerApp.events')
             maximalAmountOfGuests: 0,
             guests: []
         };
+    };
 
-}]);
+    return EventNewCtrl;
+});
