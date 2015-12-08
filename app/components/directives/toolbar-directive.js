@@ -4,8 +4,10 @@ define([], function () {
         templateUrl: 'components/templates/toolbar.html',
         link: function (scope, element) {
             $rootScope.$on('$routeChangeSuccess', function (event, toState) {
-                scope.isStartPage = toState.data.isStartPage;
-                scope.pageTitle = toState.data.pageTitle;
+                if ( toState.data !== undefined ) {
+                  scope.isStartPage = toState.data.isStartPage;
+                  scope.pageTitle = toState.data.pageTitle;
+                }
             });
 
             scope.goBack = function () {
