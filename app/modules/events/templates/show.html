@@ -12,7 +12,11 @@
 
 <div class="showEntry">
     <img class="md-avatar" ng-src="img/icons/ic_place_24px.svg">
-    {{event.location.name}}, {{event.location.street}}, {{event.location.plz}}
+    <span ng-if="event.location.name">{{event.location.name}}, </span>
+    <span ng-if="event.location.street">{{event.location.street}}, </span>
+    <span ng-if="event.location.plz">{{event.location.plz}}</span>
+    <span ng-if="!event.location.name">no location set.</span>
+
 </div>
 
 <div class="showEntry">
