@@ -28,7 +28,7 @@ define([], function () {
         }
 
         $scope.showReInviteButton = function (guest){
-            return guest.canceled == false || eventsService.canJoin($scope.event);
+            return guest.canceled && eventsService.canJoin($scope.event);
         }
 
     };
