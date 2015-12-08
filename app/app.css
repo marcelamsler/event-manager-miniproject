@@ -115,6 +115,22 @@ md-input-container.md-icon-float.md-input-focused, md-input-container.md-icon-fl
     background-color: rgba(33, 150, 243, 0.71);
 }
 
+
+@media (max-width: 380px) {
+    .md-dialog-container md-dialog {
+        transform: translate3d(0px, 0px, 0px) scale(0.9);
+    }
+}
+@media (max-width: 930px) {
+    .md-dialog-container md-dialog {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    .md-dialog-container md-dialog .time-date {
+        overflow-y: auto;
+    }
+}
+
 md-select {
    margin-left: 40px!important;
 }
