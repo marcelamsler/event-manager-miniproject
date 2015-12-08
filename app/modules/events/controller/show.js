@@ -11,16 +11,6 @@ define([], function () {
             });
         }
 
-        //function canJoin(event) {
-        //    var activeGuests = 0;
-        //    angular.forEach(event.guests, function (guest) {
-        //        if (!guest.canceled) {
-        //            activeGuests++;
-        //        }
-        //    });
-        //    return event.maximalAmountOfGuests - activeGuests > 0;
-        //}
-
         $scope.toggleCancelGuest = function (guest) {
             if (guest.canceled) {
                 if (!eventsService.canJoin($scope.event)) {
@@ -35,6 +25,10 @@ define([], function () {
             }).then(function () {
                 eventsService.loadAllEvents();
             });
+        }
+
+        $scope.showReInviteButton = function (guest){
+            return guest.canceled == false || eventsService.canJoin($scope.event);
         }
 
     };

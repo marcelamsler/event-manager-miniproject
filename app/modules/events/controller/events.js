@@ -14,8 +14,7 @@ define([], function () {
         }
 
         $scope.canJoinToThis = function (event){
-            var xx = eventsService.canJoin(event);
-            return xx;
+            return eventsService.canJoin(event);
         }
         /**
          * Set a certain event active (or inactive again) and set all other

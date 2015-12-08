@@ -43,7 +43,10 @@
                 <md-button class="pull-left"
                            href="#/events/{{event.id}}/guests/{{guest.id}}/edit"
                            ng-hide="guest.canceled">Edit</md-button>
-                <md-button ng-click="toggleCancelGuest(guest)">{{ guest.canceled ? "Undo Cancel" : "Cancel" }}</md-button>
+
+                <md-button ng-show="showReInviteButton(guest)" ng-click="toggleCancelGuest(guest)">Re-Invite</md-button>
+                <md-button  ng-show="guest.canceled == false" ng-click="toggleCancelGuest(guest)">Cancel</md-button>
+
             </div>
         </div>
     </md-list-item>
