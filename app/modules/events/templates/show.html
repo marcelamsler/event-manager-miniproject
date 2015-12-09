@@ -5,14 +5,15 @@
     <img class="md-avatar" ng-src="img/icons/ic_flight_land_black_24px.svg">{{event.times.end | date:'dd.M. H:mm' }}
 </div>
 
-<div class="showEntry">
+<div ng-if="event.description" class="showEntry">
     <img class="md-avatar" ng-src="img/icons/ic_description_black_24px.svg">
     {{event.description}}
 </div>
 
-<div class="showEntry">
+<div ng-if="event.location.name" class="showEntry">
     <img class="md-avatar" ng-src="img/icons/ic_place_24px.svg">
     {{event.location.name}}, {{event.location.street}}, {{event.location.plz}}
+
 </div>
 
 <div class="showEntry">
