@@ -1,48 +1,76 @@
-module.exports = function(config){
+// Karma configuration
+// Generated on Tue Dec 08 2015 23:53:19 GMT+0100 (CET)
+
+module.exports = function(config) {
   config.set({
 
-    basePath : './',
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: '',
 
+
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jasmine', 'requirejs'],
+
+
+    // list of files / patterns to load in the browser
     files: [
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-route/angular-route.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/modules/events/init.js',
-      'app/modules/events/services/eventsService.js',
-      'app/components/services/UUID-service.js',
-      'app/modules/events/controller/events.js',
-      'app/modules/events/controller/new.js',
-      'app/modules/events/controller/edit.js',
-      'app/modules/events/controller/show.js',
-      'app/modules/events/directives/events-form-directive.js',
-      'app/modules/events/directives/date-time-picker.js',
-      'app/modules/events/tests/*.js',
-      'app/modules/guests/init.js',
-      'app/modules/guests/controller/new.js',
-      'app/modules/guests/controller/edit.js',
-      'app/modules/guests/directives/guest-form-directive.js',
-      'app/modules/guests/tests/*.js',
-      'app/app.js',
-      'app/components/directives/toolbar-directive.js'
+        'app/bower_components/angular/angular.js',
+        'app/bower_components/angular-route/angular-route.js',
+        'app/bower_components/angular-mocks/angular-mocks.js',
+        'app/app.js',
+        'test-main.js',
+        {pattern: 'tests/**/*.js', included: false},
+        {pattern: 'app/modules/**/*.js', included: false}
     ],
 
-    autoWatch : true,
 
-    frameworks: ['jasmine'],
+    // list of files to exclude
+    exclude: [
+       "app/require-config.js"
+    ],
 
-    browsers : ['Chrome'],
 
-    plugins : [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-jasmine',
-            'karma-junit-reporter'
-            ],
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+    },
 
-    junitReporter : {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
 
-  });
-};
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress'],
+
+
+    // web server port
+    port: 9876,
+
+
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
+
+
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: true,
+
+
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['Chrome'/*, 'Firefox'*/],
+
+
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: false,
+
+    // Concurrency level
+    // how many browser should be started simultanous
+    concurrency: Infinity
+  })
+}
